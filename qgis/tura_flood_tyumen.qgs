@@ -1,0 +1,204 @@
+<!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
+<qgis projectname="Tura flood at Tyumen, July 2026" version="3.34.0">
+  <homePath path=""/>
+  <title>Tura flood at Tyumen — July 2026 (RGS Young Geographer project)</title>
+  <projectCrs>
+    <spatialrefsys>
+      <authid>EPSG:32641</authid>
+    </spatialrefsys>
+  </projectCrs>
+  <layer-tree-group>
+      <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" name="Flood extent 29 Jul 2026" id="Flood_extent_29_Jul_2026_efee76d5"/>
+      <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" name="River extent 18 Jun 2026 (pre-flood)" id="River_extent_18_Jun_2026_pre-flood_2565fbb0"/>
+      <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" name="New inundation (flood minus pre-flood river)" id="New_inundation_flood_minus_pre-flood_river_2a835920"/>
+      <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" name="Buildings flooded" id="Buildings_flooded_88719b41"/>
+      <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" name="Buildings (all, OSM)" id="Buildings_all,_OSM_e7ba317a"/>
+      <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" name="Roads flooded" id="Roads_flooded_55df1084"/>
+      <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" name="Roads (all, OSM)" id="Roads_all,_OSM_81b7b246"/>
+      <layer-tree-layer expanded="1" providerKey="ogr" checked="Qt::Checked" name="North/south divider (river axis)" id="North_south_divider_river_axis_cc562ccb"/>
+      <layer-tree-layer expanded="1" providerKey="gdal" checked="Qt::Checked" name="MNDWI 18 Jun 2026 (pre-flood)" id="MNDWI_18_Jun_2026_pre-flood_1604126c"/>
+      <layer-tree-layer expanded="1" providerKey="gdal" checked="Qt::Checked" name="MNDWI 29 Jul 2026 (flood peak)" id="MNDWI_29_Jul_2026_flood_peak_50796f83"/>
+  </layer-tree-group>
+  <projectlayers>
+    <maplayer type="vector" geometry="Polygon" hasScaleBasedVisibilityFlag="0" autoRefreshTime="0" autoRefreshEnabled="0" refreshOnNotifyEnabled="0" simplifyMaxScale="1" simplifyDrawingHints="1" simplifyLocal="1" labelsEnabled="0" simplifyAlgorithm="0" symbologyReferenceScale="-1" simplifyDrawingTol="1" styleCategories="AllStyleCategories" minScale="100000000" maxScale="0" wkbType="Polygon">
+      <extent>
+        <xmin>652040.511283</xmin>
+        <ymin>6338178.065439571</ymin>
+        <xmax>654950.107886</xmax>
+        <ymax>6341878.695329</ymax>
+      </extent>
+      <id>Flood_extent_29_Jul_2026_efee76d5</id>
+      <datasource>./../data/processed/flood_extent_20260729.geojson</datasource>
+      <layername>Flood extent 29 Jul 2026</layername>
+      <srs>
+        <spatialrefsys>
+          <authid>EPSG:32641</authid>
+        </spatialrefsys>
+      </srs>
+      <provider encoding="UTF-8">ogr</provider>
+    </maplayer>
+
+    <maplayer type="vector" geometry="Polygon" hasScaleBasedVisibilityFlag="0" autoRefreshTime="0" autoRefreshEnabled="0" refreshOnNotifyEnabled="0" simplifyMaxScale="1" simplifyDrawingHints="1" simplifyLocal="1" labelsEnabled="0" simplifyAlgorithm="0" symbologyReferenceScale="-1" simplifyDrawingTol="1" styleCategories="AllStyleCategories" minScale="100000000" maxScale="0" wkbType="Polygon">
+      <extent>
+        <xmin>652040.511283</xmin>
+        <ymin>6338183.555988368</ymin>
+        <xmax>654950.107886</xmax>
+        <ymax>6341313.16880287</ymax>
+      </extent>
+      <id>River_extent_18_Jun_2026_pre-flood_2565fbb0</id>
+      <datasource>./../data/processed/river_extent_20260618.geojson</datasource>
+      <layername>River extent 18 Jun 2026 (pre-flood)</layername>
+      <srs>
+        <spatialrefsys>
+          <authid>EPSG:32641</authid>
+        </spatialrefsys>
+      </srs>
+      <provider encoding="UTF-8">ogr</provider>
+    </maplayer>
+
+    <maplayer type="vector" geometry="Polygon" hasScaleBasedVisibilityFlag="0" autoRefreshTime="0" autoRefreshEnabled="0" refreshOnNotifyEnabled="0" simplifyMaxScale="1" simplifyDrawingHints="1" simplifyLocal="1" labelsEnabled="0" simplifyAlgorithm="0" symbologyReferenceScale="-1" simplifyDrawingTol="1" styleCategories="AllStyleCategories" minScale="100000000" maxScale="0" wkbType="Polygon">
+      <extent>
+        <xmin>652040.511283</xmin>
+        <ymin>6338178.065439571</ymin>
+        <xmax>654950.107886</xmax>
+        <ymax>6341878.695329</ymax>
+      </extent>
+      <id>New_inundation_flood_minus_pre-flood_river_2a835920</id>
+      <datasource>./../data/processed/new_inundation_20260729.geojson</datasource>
+      <layername>New inundation (flood minus pre-flood river)</layername>
+      <srs>
+        <spatialrefsys>
+          <authid>EPSG:32641</authid>
+        </spatialrefsys>
+      </srs>
+      <provider encoding="UTF-8">ogr</provider>
+    </maplayer>
+
+    <maplayer type="vector" geometry="Polygon" hasScaleBasedVisibilityFlag="0" autoRefreshTime="0" autoRefreshEnabled="0" refreshOnNotifyEnabled="0" simplifyMaxScale="1" simplifyDrawingHints="1" simplifyLocal="1" labelsEnabled="0" simplifyAlgorithm="0" symbologyReferenceScale="-1" simplifyDrawingTol="1" styleCategories="AllStyleCategories" minScale="100000000" maxScale="0" wkbType="Polygon">
+      <extent>
+        <xmin>652371.9897998282</xmin>
+        <ymin>6338249.014714358</ymin>
+        <xmax>654858.0170304242</xmax>
+        <ymax>6339264.555341361</ymax>
+      </extent>
+      <id>Buildings_flooded_88719b41</id>
+      <datasource>./../data/processed/buildings_flooded.geojson</datasource>
+      <layername>Buildings flooded</layername>
+      <srs>
+        <spatialrefsys>
+          <authid>EPSG:32641</authid>
+        </spatialrefsys>
+      </srs>
+      <provider encoding="UTF-8">ogr</provider>
+    </maplayer>
+
+    <maplayer type="vector" geometry="Polygon" hasScaleBasedVisibilityFlag="0" autoRefreshTime="0" autoRefreshEnabled="0" refreshOnNotifyEnabled="0" simplifyMaxScale="1" simplifyDrawingHints="1" simplifyLocal="1" labelsEnabled="0" simplifyAlgorithm="0" symbologyReferenceScale="-1" simplifyDrawingTol="1" styleCategories="AllStyleCategories" minScale="100000000" maxScale="0" wkbType="Polygon">
+      <extent>
+        <xmin>651067.1256194218</xmin>
+        <ymin>6335653.8243755745</ymin>
+        <xmax>655125.4206702436</xmax>
+        <ymax>6339264.555341361</ymax>
+      </extent>
+      <id>Buildings_all,_OSM_e7ba317a</id>
+      <datasource>./../data/processed/buildings.geojson</datasource>
+      <layername>Buildings (all, OSM)</layername>
+      <srs>
+        <spatialrefsys>
+          <authid>EPSG:32641</authid>
+        </spatialrefsys>
+      </srs>
+      <provider encoding="UTF-8">ogr</provider>
+    </maplayer>
+
+    <maplayer type="vector" geometry="LineString" hasScaleBasedVisibilityFlag="0" autoRefreshTime="0" autoRefreshEnabled="0" refreshOnNotifyEnabled="0" simplifyMaxScale="1" simplifyDrawingHints="1" simplifyLocal="1" labelsEnabled="0" simplifyAlgorithm="0" symbologyReferenceScale="-1" simplifyDrawingTol="1" styleCategories="AllStyleCategories" minScale="100000000" maxScale="0" wkbType="LineString">
+      <extent>
+        <xmin>651951.7987599995</xmin>
+        <ymin>6338093.963722975</ymin>
+        <xmax>655178.8288873491</xmax>
+        <ymax>6339806.43983366</ymax>
+      </extent>
+      <id>Roads_flooded_55df1084</id>
+      <datasource>./../data/processed/roads_flooded.geojson</datasource>
+      <layername>Roads flooded</layername>
+      <srs>
+        <spatialrefsys>
+          <authid>EPSG:32641</authid>
+        </spatialrefsys>
+      </srs>
+      <provider encoding="UTF-8">ogr</provider>
+    </maplayer>
+
+    <maplayer type="vector" geometry="LineString" hasScaleBasedVisibilityFlag="0" autoRefreshTime="0" autoRefreshEnabled="0" refreshOnNotifyEnabled="0" simplifyMaxScale="1" simplifyDrawingHints="1" simplifyLocal="1" labelsEnabled="0" simplifyAlgorithm="0" symbologyReferenceScale="-1" simplifyDrawingTol="1" styleCategories="AllStyleCategories" minScale="100000000" maxScale="0" wkbType="LineString">
+      <extent>
+        <xmin>649930.9741588834</xmin>
+        <ymin>6333539.6152706025</ymin>
+        <xmax>655348.771747014</xmax>
+        <ymax>6340270.998099894</ymax>
+      </extent>
+      <id>Roads_all,_OSM_81b7b246</id>
+      <datasource>./../data/processed/roads.geojson</datasource>
+      <layername>Roads (all, OSM)</layername>
+      <srs>
+        <spatialrefsys>
+          <authid>EPSG:32641</authid>
+        </spatialrefsys>
+      </srs>
+      <provider encoding="UTF-8">ogr</provider>
+    </maplayer>
+
+    <maplayer type="vector" geometry="LineString" hasScaleBasedVisibilityFlag="0" autoRefreshTime="0" autoRefreshEnabled="0" refreshOnNotifyEnabled="0" simplifyMaxScale="1" simplifyDrawingHints="1" simplifyLocal="1" labelsEnabled="0" simplifyAlgorithm="0" symbologyReferenceScale="-1" simplifyDrawingTol="1" styleCategories="AllStyleCategories" minScale="100000000" maxScale="0" wkbType="LineString">
+      <extent>
+        <xmin>634437.8574141731</xmin>
+        <ymin>6330508.041202582</ymin>
+        <xmax>673209.6293582129</xmax>
+        <ymax>6346287.345364855</ymax>
+      </extent>
+      <id>North_south_divider_river_axis_cc562ccb</id>
+      <datasource>./../data/processed/ns_divider.geojson</datasource>
+      <layername>North/south divider (river axis)</layername>
+      <srs>
+        <spatialrefsys>
+          <authid>EPSG:32641</authid>
+        </spatialrefsys>
+      </srs>
+      <provider encoding="UTF-8">ogr</provider>
+    </maplayer>
+
+    <maplayer type="raster" hasScaleBasedVisibilityFlag="0" autoRefreshTime="0" autoRefreshEnabled="0" refreshOnNotifyEnabled="0" styleCategories="AllStyleCategories" minScale="1e+08" maxScale="0">
+      <extent>
+        <xmin>652040.511283</xmin>
+        <ymin>6333099.307802</ymin>
+        <xmax>654950.107886</xmax>
+        <ymax>6341878.695329</ymax>
+      </extent>
+      <id>MNDWI_18_Jun_2026_pre-flood_1604126c</id>
+      <datasource>./../data/processed/mndwi_20260618.tif</datasource>
+      <layername>MNDWI 18 Jun 2026 (pre-flood)</layername>
+      <srs>
+        <spatialrefsys>
+          <authid>EPSG:32641</authid>
+        </spatialrefsys>
+      </srs>
+      <provider>gdal</provider>
+    </maplayer>
+
+    <maplayer type="raster" hasScaleBasedVisibilityFlag="0" autoRefreshTime="0" autoRefreshEnabled="0" refreshOnNotifyEnabled="0" styleCategories="AllStyleCategories" minScale="1e+08" maxScale="0">
+      <extent>
+        <xmin>652040.511283</xmin>
+        <ymin>6333099.307802</ymin>
+        <xmax>654950.107886</xmax>
+        <ymax>6341878.695329</ymax>
+      </extent>
+      <id>MNDWI_29_Jul_2026_flood_peak_50796f83</id>
+      <datasource>./../data/processed/mndwi_20260729.tif</datasource>
+      <layername>MNDWI 29 Jul 2026 (flood peak)</layername>
+      <srs>
+        <spatialrefsys>
+          <authid>EPSG:32641</authid>
+        </spatialrefsys>
+      </srs>
+      <provider>gdal</provider>
+    </maplayer>
+
+  </projectlayers>
+</qgis>

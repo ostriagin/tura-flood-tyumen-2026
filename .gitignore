@@ -1,0 +1,30 @@
+# secrets — never commit
+.secrets/
+
+# raw satellite/terrain data — large, and fully reproducible from README instructions
+data/raw/
+
+# superseded / diagnostic intermediates
+data/processed/water_masks.npz
+data/processed/water_masks_robust.npz
+data/processed/mndwi_check.png
+data/processed/mndwi_check2.png
+data/processed/mndwi_check3.png
+data/processed/mndwi_check4.png
+data/processed/rgb_debug.png
+data/processed/thresholds.json
+data/processed/*_wgs84.geojson
+data/processed/*_parts_wgs84.json
+data/processed/*_parts_v*.json
+data/processed/worldpop_query_parts.json
+data/processed/north_v2_*.json
+data/processed/north_parts_v*.json
+data/processed/flood_north_q_wgs84.json
+data/processed/flood_south_q_wgs84.json
+data/processed/*_closed_simplified_wgs84.json
+data/processed/dem_water_mask_debug*
+
+# OS junk
+.DS_Store
+__pycache__/
+*.pyc

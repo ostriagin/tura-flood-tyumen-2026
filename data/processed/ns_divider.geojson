@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "ns_divider",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::32641" } },
+"features": [
+{ "type": "Feature", "properties": { }, "geometry": { "type": "LineString", "coordinates": [ [ 634437.857414173078723, 6346287.345364854671061 ], [ 673209.629358212929219, 6330508.041202582418919 ] ] } }
+]
+}

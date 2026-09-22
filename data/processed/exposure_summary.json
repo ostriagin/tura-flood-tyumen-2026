@@ -1,0 +1,21 @@
+{
+  "flood_extent_ha": 415.02289955270277,
+  "pre_flood_water_ha": 137.42923078981835,
+  "new_inundation_ha": 280.76070846793067,
+  "buildings_total": 5153,
+  "buildings_flooded_total": 138,
+  "buildings_flooded_north": 120,
+  "buildings_flooded_south": 18,
+  "buildings_total_north": 716,
+  "buildings_total_south": 4437,
+  "roads_flooded_length_km": 51.25462495763205,
+  "roads_flooded_length_km_north": 39.83798502212597,
+  "roads_flooded_length_km_south": 11.416639935506087,
+  "population_flooded_north_measured": 5011.73,
+  "population_flooded_north_coverage_pct": 98.57017976903524,
+  "population_flooded_north_scaled": 5084.428182786353,
+  "population_flooded_south_measured": 554.35,
+  "population_flooded_south_coverage_pct": 98.80800301503679,
+  "population_flooded_south_scaled": 561.037550688721,
+  "population_source": "WorldPop Global Project Population Data, unconstrained, 2020, 100m (wpgppop), queried via api.worldpop.org/v1/services/stats"
+}
