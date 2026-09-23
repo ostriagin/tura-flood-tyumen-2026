@@ -35,14 +35,14 @@ ax.annotate("River channel\n(~48-50 m)", xy=(0, elev[np.argmin(np.abs(dist))]),
 
 ax.set_xlabel("Distance from river centreline (m)  —  south (–) to north (+)")
 ax.set_ylabel("Elevation (m a.s.l., Copernicus DEM GLO-30)")
-ax.set_title("Figure 2. Terrain cross-section through the historic centre, Tura at Tyumen,\nperpendicular to the river, with the 31 July 2026 flood peak (891 cm) ruled across it")
+ax.set_title("Terrain cross-section through the historic centre, Tura at Tyumen,\nperpendicular to the river, with the 31 July 2026 flood peak (891 cm) ruled across it", fontsize=11.5)
 ax.set_xlim(dist.min(), dist.max())
 ax.legend(loc="upper right", fontsize=9, framealpha=0.9)
 ax.grid(alpha=0.25)
 plt.tight_layout()
-plt.savefig(f"{FIG}/fig2_cross_section.png", dpi=160)
+plt.savefig(f"{FIG}/fig3_cross_section.png", dpi=160)
 plt.close()
-print("fig2 done")
+print("fig3 cross-section done")
 
 # print some numbers for the report
 below_flood = elev <= FLOOD_ELEV

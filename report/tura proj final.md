@@ -1,7 +1,9 @@
 ---
 title: "Does the 1586 siting of Tyumen still determine which bank of the Tura floods?"
 subtitle: "A Sentinel-2 flood-extent analysis of the July 2026 Tura flood"
-author: "Sasha Ostriagin"
+author: |
+  Sasha Ostriagin  
+  Bromsgrove School, United Kingdom
 date: "September 2026"
 geometry: margin=2.2cm
 fontsize: 11pt
@@ -21,6 +23,10 @@ The present study investigates whether the historical choice of Tyumen's siting 
 ## Study area
 
 Tyumen (57.15°N, 65.53°E) is the oldest Russian city in Siberia, located on the banks of the Tura river, a right-bank tributary of the Tobol, which flows into the Irtysh, then into the Ob, and finally empties into the Kara Sea. The historical centre and the kremlin are located on the high, steep bluff of the south bank, which rises approximately 30–40 metres above the river within a few hundred metres of the channel. The northern bank, by contrast, is a more moderate terrace hosting docks, industry and, latterly, landscaped embankments and the so-called "second tier" (вторая надпойменная терраса). Historically, this latter area was built up above the first, lower terrace and is traditionally considered to lie outside the ordinary flood extent.
+
+Figure 1 sets out this asymmetry directly. Panel (a) maps the terrain of the study reach from the Copernicus DEM, locating the historic centre, the city gauge and the line of the cross-section discussed below; the colour ramp alone distinguishes the high southern bluff from the low northern terrace. Panel (b) places the Tura within the drainage chain that carries its water north to the Arctic Ocean, the wider system within which the July 2026 event occurred.
+
+![Setting of the study area. (a) Terrain of the Tura reach through Tyumen from the Copernicus DEM GLO-30, showing the steep southern bluff, the low northern terrace, the historic centre and kremlin, the city gauge, and the line of the cross-section shown in Figure 3. (b) The drainage chain from the Tura to the Kara Sea (schematic). Sources: Copernicus DEM GLO-30; river channel derived from Sentinel-2 L2A imagery, Copernicus Data Space Ecosystem; author's analysis.](../figures/fig1_context.png){width=100%}
 
 In July 2026, the combination of rainfall and upstream snowmelt resulted in a record-high water level. As measured by the city gauge, whose zero point is set at 48.52 metres above sea level (Baltic height system), the peak recorded on 31 July 2026 was 891 cm, corresponding to 57.43 metres above sea level and exceeding the entire prior observation record. A state of emergency was declared, the new embankment was overtopped, and volunteers — including the author of this paper — filled sandbags on the north bank over two days as the water spread into residential areas beyond the normal floodplain.
 
@@ -44,15 +50,15 @@ The final method constrains the *spectral* water mask with a *topographic* one, 
 
 ## Results
 
-**Flood extent.** Figure 1 depicts the pre-flood and flood-peak scenes with the derived water masks overlaid. The pre-flood channel occupies 137.4 ha, including the meander lake north of the historic centre; the flood extent covers 415.0 ha, of which 280.8 ha (68%) constitutes newly inundated territory beyond the permanent channel. The flood extends markedly further north of the river, and into more densely built fabric, than it does to the south (Figure 1; Figure 3).
+**Flood extent.** Figure 2 depicts the pre-flood and flood-peak scenes with the derived water masks overlaid. The pre-flood channel occupies 137.4 ha, including the meander lake north of the historic centre; the flood extent covers 415.0 ha, of which 280.8 ha (68%) constitutes newly inundated territory beyond the permanent channel. The flood extends markedly further north of the river, and into more densely built fabric, than it does to the south (Figure 2; Figure 4).
 
-![Sentinel-2 true-colour composites (bands B04/B03/B02) for Tyumen, 18 June 2026 (pre-flood, left) and 29 July 2026 (flood peak, right), with the permanent river channel outlined in cyan and the 29 July flood extent rendered in orange, as derived in this report. The north–south dividing line used for exposure counts is also shown. Source: Sentinel-2 Level-2A, Copernicus Data Space Ecosystem / Copernicus Browser; author's analysis.](../figures/fig1_flood_extent.png)
+![Sentinel-2 true-colour composites (bands B04/B03/B02) for Tyumen, 18 June 2026 (pre-flood, left) and 29 July 2026 (flood peak, right), with the permanent river channel outlined in cyan and the 29 July flood extent rendered in orange, as derived in this report. The north–south dividing line used for exposure counts is also shown. Source: Sentinel-2 Level-2A, Copernicus Data Space Ecosystem / Copernicus Browser; author's analysis.](../figures/fig2_flood_extent.png){width=100%}
 
-**Cross-section.** Figure 2 shows the DEM cross-section through the historic centre, oriented perpendicular to the river, with the 891 cm gauge peak (57.43 m a.s.l.) applied as a reference line. The channel bed lies at approximately 48–50 m a.s.l., consistent with the gauge datum (zero = 48.52 m). The south bank rises sharply, reaching approximately 90 m within about 400 m of the channel — a genuine bluff, and the site occupied by the 1586 fortress. The north bank, by contrast, is considerably more moderate, rising to only 59–63 m over the same distance, and at several points along the broader terrace it lies only 1–3 m above the 891 cm flood line. The flood line crosses approximately 515 m of the transect, almost all of it on the low north-bank side.
+**Cross-section.** Figure 3 shows the DEM cross-section through the historic centre, oriented perpendicular to the river, with the 891 cm gauge peak (57.43 m a.s.l.) applied as a reference line. The channel bed lies at approximately 48–50 m a.s.l., consistent with the gauge datum (zero = 48.52 m). The south bank rises sharply, reaching approximately 90 m within about 400 m of the channel — a genuine bluff, and the site occupied by the 1586 fortress. The north bank, by contrast, is considerably more moderate, rising to only 59–63 m over the same distance, and at several points along the broader terrace it lies only 1–3 m above the 891 cm flood line. The flood line crosses approximately 515 m of the transect, almost all of it on the low north-bank side.
 
-![Terrain cross-section perpendicular to the Tura through the historic centre, with the flood peak of 31 July 2026 (891 cm gauge reading = 57.43 m a.s.l.) ruled across it. Source: Copernicus DEM GLO-30; author's analysis.](../figures/fig2_cross_section.png)
+![Terrain cross-section perpendicular to the Tura through the historic centre, with the flood peak of 31 July 2026 (891 cm gauge reading = 57.43 m a.s.l.) ruled across it. Source: Copernicus DEM GLO-30; author's analysis.](../figures/fig3_cross_section.png)
 
-**Exposure.** Table 1 summarises exposure by bank (depicted also in Figure 3).
+**Exposure.** Table 1 summarises exposure by bank (depicted also in Figure 4).
 
 | | North bank | South bank |
 |---|---:|---:|
@@ -64,11 +70,11 @@ The final method constrains the *spectral* water mask with a *topographic* one, 
 
 *Table 1. Flood exposure by bank, 29 July 2026. Sources: buildings and roads, OpenStreetMap contributors (via Overpass API); population, WorldPop Global Project Population Data (unconstrained, 2020, 100 m); flood extent, author's analysis (see Data and methods).*
 
-![Flood exposure by bank: buildings flooded (of total), flooded road length, and flood-extent area. Source: author's analysis, OpenStreetMap contributors, WorldPop.](../figures/fig3_exposure.png)
+![Flood exposure by bank: buildings flooded (of total), flooded road length, and flood-extent area. Source: author's analysis, OpenStreetMap contributors, WorldPop.](../figures/fig4_exposure.png)
 
 Despite the fact that the south bank contains six times more buildings in total (including the historic centre and the majority of the contemporary city), the flooded area on the north bank is sixteen times larger, its proportion of flooded buildings is approximately forty times higher, and the estimated exposed population is roughly nine times greater. This is a clear and consistent result across every exposure metric, and it corresponds directly to the 1586 siting decision — to build the city on the high south bank while leaving the low north bank as floodplain — of which the observations in this paper represent a retrospective validation, 440 years later.
 
-**The "second tier" question.** The cross-section explains why the narrative cannot be reduced to a simple binary of "north floods, south does not." Along most of the transect the north-bank terrace remains several metres above the inundation line and stayed dry; although the proportion of flooded buildings on the north bank is relatively high (16.8%), the majority of the terrace was not inundated. But wherever the terrace elevation approaches within 1–3 m of the flood line — observed at several points along the cross-section, and in the newly inundated blocks visible in Figure 1 — the record 891 cm event was sufficient to cross it. This coincides with reports that the "second tier" flooded for the first time in living memory: the reasoning of the 1586 siting (south = safe, north = exposed) is not a binary but a *threshold* relation. The north bank has always lain closer to the flood line, and an exceptionally large flood, exceeding the previous record by a wide margin, pushed parts of the terrace that had previously stood just above the threshold below it.
+**The "second tier" question.** The cross-section explains why the narrative cannot be reduced to a simple binary of "north floods, south does not." Along most of the transect the north-bank terrace remains several metres above the inundation line and stayed dry; although the proportion of flooded buildings on the north bank is relatively high (16.8%), the majority of the terrace was not inundated. But wherever the terrace elevation approaches within 1–3 m of the flood line — observed at several points along the cross-section, and in the newly inundated blocks visible in Figure 2 — the record 891 cm event was sufficient to cross it. This coincides with reports that the "second tier" flooded for the first time in living memory: the reasoning of the 1586 siting (south = safe, north = exposed) is not a binary but a *threshold* relation. The north bank has always lain closer to the flood line, and an exceptionally large flood, exceeding the previous record by a wide margin, pushed parts of the terrace that had previously stood just above the threshold below it.
 
 ## Limitations
 

@@ -40,7 +40,7 @@ for i in range(2):
 axes[2].set_xticks(x); axes[2].set_xticklabels(cats)
 axes[2].set_title("Flood extent area")
 
-fig.suptitle("Figure 3. Flood exposure by bank, Tura at Tyumen, 29 July 2026", fontsize=12.5)
+fig.suptitle("Flood exposure by bank, Tura at Tyumen, 29 July 2026", fontsize=12.5)
 plt.tight_layout(rect=[0,0,1,0.93])
-plt.savefig(f"{FIG}/fig3_exposure.png", dpi=160)
-print("fig3 done")
+plt.savefig(f"{FIG}/fig4_exposure.png", dpi=160)
+print("fig4 exposure done")

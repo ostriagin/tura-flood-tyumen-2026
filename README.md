@@ -61,8 +61,9 @@ reproducible). To rebuild it:
    against the known south-bank location of the Tyumen kremlin), and counts
    flooded buildings, roads and (via the WorldPop API) population on each
    bank.
-3. `scripts/make_figures.py`, `scripts/make_fig2_cross_section.py`,
-   `scripts/make_fig3_exposure.py` — produce the three report figures.
+3. `scripts/make_fig1_context.py`, `scripts/make_fig2_flood_extent.py`,
+   `scripts/make_fig3_cross_section.py`, `scripts/make_fig4_exposure.py` —
+   produce the four report figures.
 4. `scripts/build_qgis_project.py` — writes `qgis/tura_flood_tyumen.qgs`
    referencing the processed vector and raster layers.
 
