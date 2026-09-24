@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The High Bank</title>
+<style>
+  /* all text >= 3.75mm (10.6pt) — competition minimum is 10pt */
+  @page { size: 297mm 420mm; margin: 0; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  :root{
+    --paper:#FBF7EF; --ink:#22303A; --body:#38464F; --soft:#6D7C85;
+    --teal:#0E7C86; --flood:#C7432A; --ochre:#A9761F; --plum:#7A3B57;
+    --t-teal:#E2EFEE; --t-flood:#FAE7E0; --t-gold:#F6EBD5; --t-plum:#F2E6EC;
+    --rule:#D6C8B2; --min:3.75mm;
+  }
+
+  html,body{ width:297mm; height:420mm; background:var(--paper); }
+  body{ font-family:"TeX Gyre Pagella",Palatino,serif; color:var(--body);
+        -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .sheet{ width:297mm; height:420mm; padding:6mm 11mm 5mm; display:flex;
+          flex-direction:column; overflow:hidden; }
+
+  .cn{ font-family:"TeX Gyre Heros Cn","Liberation Sans",sans-serif; }
+  .mn{ font-family:"DejaVu Sans Mono",monospace; }
+
+  /* ---------- header ---------- */
+  .eyebrow{ font-family:"DejaVu Sans Mono",monospace; font-size:var(--min);
+            letter-spacing:.1em; text-transform:uppercase; color:var(--soft); }
+  .topbar{ display:flex; justify-content:space-between; align-items:baseline; line-height:1.1; }
+  .byl{ text-align:right; font-size:var(--min); color:var(--soft); line-height:1.3; }
+  .byl b{ font-family:"TeX Gyre Heros Cn",sans-serif; font-size:4.3mm;
+          color:var(--ink); text-transform:uppercase; letter-spacing:.02em; display:block; }
+  h1{ font-family:"TeX Gyre Heros Cn",sans-serif; font-weight:700; font-size:17.5mm;
+      line-height:.86; letter-spacing:-.012em; text-transform:uppercase; color:var(--ink);
+      margin-top:1.5mm; }
+  h1 em{ font-style:normal; color:var(--teal); }
+  .dek{ font-size:4.2mm; line-height:1.26; max-width:158mm; margin-top:2.2mm; color:var(--ink); }
+  .dek b{ color:var(--flood); font-weight:normal; }
+
+  /* ---------- provocation ---------- */
+  .ask{ background:var(--t-gold); border-left:2.2mm solid var(--ochre);
+        padding:2mm 4mm 2.1mm; margin-top:2mm; }
+  .ask p{ font-size:4mm; line-height:1.24; color:var(--ink); font-style:italic; }
+  .ask span{ color:var(--ochre); font-style:normal; }
+
+  /* ---------- generic heads (deliberately varied) ---------- */
+  .h-rule{ display:flex; align-items:baseline; gap:3mm; margin:2.1mm 0 1.3mm;
+           border-bottom:.4mm solid var(--rule); padding-bottom:1.2mm; }
+  .h-rule h2{ font-family:"TeX Gyre Heros Cn",sans-serif; font-size:5.2mm;
+              text-transform:uppercase; letter-spacing:.04em; color:var(--ink); font-weight:700; }
+  .h-rule .note{ margin-left:auto; font-size:var(--min); color:var(--soft); font-style:italic; }
+  .h-big{ margin:1.9mm 0 1.2mm; }
+  .h-big h2{ font-size:5.9mm; line-height:1.12; color:var(--ink); font-style:italic; font-weight:normal; }
+  .h-big h2 b{ font-style:normal; font-family:"TeX Gyre Heros Cn",sans-serif;
+               text-transform:uppercase; font-weight:700; color:var(--flood); }
+
+  .profile{ width:100%; height:33.6mm; display:block; flex:none; }
+
+  /* ---------- evidence: deliberately asymmetric ---------- */
+  .ev{ display:flex; gap:4.5mm; align-items:flex-start; }
+  .ev .big{ flex:0 0 72mm; }
+  .ev .big img{ width:72mm; height:100.3mm; display:block; }
+  .ev .mid{ flex:0 0 56mm; }
+  .ev .rail{ flex:1; }
+  .ev .mid img{ width:56mm; height:78mm; display:block; }
+  .cap{ font-size:var(--min); color:var(--soft); margin-top:1mm; line-height:1.24; }
+  .lbl{ font-family:"TeX Gyre Heros Cn",sans-serif; font-size:4.4mm; text-transform:uppercase;
+        letter-spacing:.03em; color:var(--ink); }
+  .lbl s{ text-decoration:none; color:var(--flood); }
+  .lbl u{ text-decoration:none; color:var(--teal); }
+  .ev .rail p{ font-size:var(--min); line-height:1.36; margin-top:2.2mm; }
+  .keyline{ display:flex; gap:4mm; margin-top:2.4mm; font-size:var(--min); flex-wrap:wrap; }
+  .keyline i{ font-style:normal; display:flex; align-items:center; gap:1.8mm; }
+  .sw{ width:5mm; height:2.8mm; display:inline-block; }
+  .sw.w{ background:rgba(14,124,134,.45); border:.3mm solid var(--teal); }
+  .sw.f{ background:rgba(199,67,42,.5); border:.3mm solid var(--flood); }
+
+  .shout{ background:var(--t-flood); padding:2.4mm 3.4mm; margin-top:0; }
+  .shout .n{ font-family:"TeX Gyre Heros Cn",sans-serif; font-size:13mm; line-height:.9;
+             color:var(--flood); }
+  .shout .t{ font-size:var(--min); line-height:1.3; margin-top:1mm; color:var(--ink); }
+
+  /* ---------- the finding: typographic, not boxed ---------- */
+  .find{ display:flex; align-items:stretch; gap:5mm; margin-top:2mm; }
+  .find .col{ flex:1; }
+  .find .pct{ font-family:"TeX Gyre Heros Cn",sans-serif; font-size:11mm; line-height:.88; }
+  .find .n-p{ color:var(--flood); } .find .s-p{ color:var(--teal); }
+  .find .who{ font-family:"TeX Gyre Heros Cn",sans-serif; font-size:4.4mm;
+              text-transform:uppercase; letter-spacing:.04em; color:var(--ink); }
+  .find .sub{ font-size:var(--min); color:var(--soft); font-style:italic; line-height:1.3; }
+  .find .row{ font-size:var(--min); border-top:.3mm solid var(--rule); padding:.7mm 0;
+              display:flex; justify-content:space-between; }
+  .find .row b{ font-family:"TeX Gyre Heros Cn",sans-serif; font-size:4.1mm; color:var(--ink); }
+  .find .verdict{ flex:1.15; background:var(--t-teal); padding:3mm 4mm; }
+  .find .verdict h3{ font-family:"TeX Gyre Heros Cn",sans-serif; font-size:4.6mm;
+                     text-transform:uppercase; letter-spacing:.04em; color:var(--teal); }
+  .find .verdict p{ font-size:var(--min); line-height:1.3; margin-top:1.1mm; }
+  .find .verdict strong{ color:var(--teal); font-weight:normal; }
+
+  /* ---------- UK relevance ---------- */
+  .uk{ background:var(--t-plum); border-top:1.4mm solid var(--plum); padding:2mm 3.4mm 2.1mm;
+       margin-top:2mm; display:flex; gap:4.5mm; }
+  .uk .lead{ flex:1.25; }
+  .uk h2{ font-family:"TeX Gyre Heros Cn",sans-serif; font-size:5mm; text-transform:uppercase;
+          letter-spacing:.02em; color:var(--plum); line-height:1.02; font-weight:700; }
+  .uk p{ font-size:var(--min); line-height:1.27; margin-top:1.1mm; }
+  .uk .case{ flex:1; }
+  .uk .case h4{ font-family:"TeX Gyre Heros Cn",sans-serif; font-size:4.2mm; color:var(--plum);
+                text-transform:uppercase; letter-spacing:.03em; }
+  .uk .case p{ margin-top:.9mm; }
+  .uk .case + .case{ margin-top:1.5mm; }
+  .uk .stat{ font-family:"TeX Gyre Heros Cn",sans-serif; font-size:6.8mm; color:var(--plum);
+             line-height:.95; display:block; margin-top:1.4mm; }
+
+  footer{ margin-top:auto; padding-top:1.8mm; border-top:.4mm solid var(--rule); display:flex; gap:6mm; }
+  footer .c{ font-size:var(--min); line-height:1.2; color:var(--soft); }
+  footer .c.a{ flex:1.5; } footer .c.b{ flex:1.2; } footer .fin{ flex:1; text-align:right; }
+  footer .k{ font-family:"DejaVu Sans Mono",monospace; font-size:var(--min); letter-spacing:.08em;
+             text-transform:uppercase; color:var(--teal); display:block; margin-bottom:.6mm; }
+  .fn{ font-style:italic; color:var(--ink); }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="topbar">
+    <div class="eyebrow">From Source to Sea · Young Geographer of the Year 2026 · Key Stage 5</div>
+    <div class="byl"><b>Sasha Ostriagin</b>Bromsgrove School</div>
+  </div>
+
+  <h1>The High <em>Bank</em></h1>
+
+  <div class="ask">
+    <p>Tyumen was founded in 1586 on the steep southern bank of the Tura and left the low
+      northern bank alone. Every old town chose a side of its river.
+      <span>Four hundred and forty years on, does that choice still decide who floods?</span></p>
+  </div>
+
+  <!-- ===== long profile ===== -->
+  <div class="h-rule">
+    <h2>2,000 kilometres to fall 48 metres</h2>
+    <span class="note">vertical scale true · horizontal schematic</span>
+  </div>
+
+  <svg class="profile" viewBox="0 0 1000 124">
+    <rect x="935" y="100" width="65" height="6" fill="#0E7C86" fill-opacity="0.28"/>
+    <path d="M50,18 L255,89.2 L440,90.6 L620,92.9 L790,95.6 L935,100 L935,106 L50,106 Z"
+          fill="#0E7C86" fill-opacity="0.16"/>
+    <path d="M50,106 L1000,106 L1000,112 L50,112 Z" fill="#E4D8BF"/>
+    <path d="M50,18 L255,89.2 L440,90.6 L620,92.9 L790,95.6 L935,100"
+          fill="none" stroke="#0E7C86" stroke-width="2.6"/>
+    <g stroke="#C9BBA4" stroke-width="1">
+      <line x1="50" y1="18" x2="50" y2="106"/><line x1="440" y1="90.6" x2="440" y2="106"/>
+      <line x1="620" y1="92.9" x2="620" y2="106"/><line x1="790" y1="95.6" x2="790" y2="106"/>
+      <line x1="935" y1="100" x2="935" y2="106"/>
+    </g>
+    <line x1="255" y1="89.2" x2="255" y2="106" stroke="#C7432A" stroke-width="1.9"/>
+    <circle cx="255" cy="89.2" r="5.6" fill="#C7432A"/>
+    <circle cx="255" cy="89.2" r="10.2" fill="none" stroke="#C7432A" stroke-width="1.2" stroke-opacity=".5"/>
+    <line x1="285" y1="44" x2="920" y2="44" stroke="#A9761F" stroke-width="1" stroke-dasharray="5 4"/>
+    <text x="602" y="38" fill="#A9761F" font-family="TeX Gyre Heros Cn, sans-serif"
+          font-size="15" text-anchor="middle">
+      from Tyumen: the whole Tobol, Irtysh and Ob still ahead — and only 48.5 m of descent left
+    </text>
+    <g font-family="DejaVu Sans Mono, monospace" font-size="13.9" fill="#6D7C85">
+      <text x="345" y="76" text-anchor="middle">TURA 1,030 km</text>
+      <text x="530" y="76" text-anchor="middle">TOBOL 1,591 km</text>
+      <text x="705" y="76" text-anchor="middle">IRTYSH 4,248 km</text>
+      <text x="862" y="76" text-anchor="middle">OB 3,700 km</text>
+    </g>
+    <g font-family="TeX Gyre Heros Cn, sans-serif" font-size="14" fill="#22303A">
+      <text x="50" y="121" text-anchor="start">SOURCE · MIDDLE URALS</text>
+      <text x="255" y="121" text-anchor="middle" fill="#C7432A">TYUMEN</text>
+      <text x="440" y="121" text-anchor="middle">TURA MOUTH</text>
+      <text x="620" y="121" text-anchor="middle">TOBOLSK</text>
+      <text x="790" y="121" text-anchor="middle">KHANTY-MANSIYSK</text>
+      <text x="1000" y="121" text-anchor="end">KARA SEA</text>
+    </g>
+  </svg>
+
+  <!-- ===== evidence ===== -->
+  <div class="h-big">
+    <h2><b>Two days before the peak</b> — what Sentinel-2 saw over 2.9 km of the Tura</h2>
+  </div>
+
+  <div class="ev">
+    <div class="big">
+      <div class="lbl">29 July 2026 &nbsp;<s>flood</s></div>
+      <img src="lt_panel_flood.png" alt="Flood peak">
+      <div class="cap">Orange: water on 29 July. Teal: the normal channel. On the north bank
+        the flood is across the streets.</div>
+    </div>
+
+    <div class="mid">
+      <div class="lbl">18 June 2026 &nbsp;<u>before</u></div>
+      <img src="lt_panel_pre.png" alt="Pre-flood">
+      <div class="keyline">
+        <i><span class="sw w"></span>channel 137 ha</i>
+        <i><span class="sw f"></span>flooded 415 ha</i>
+      </div>
+    </div>
+
+    <div class="rail">
+      <div class="shout">
+        <div class="n">3&times;</div>
+        <div class="t">the river's footprint at the peak. The gauge read <b>891 cm</b> on
+          31 July — its highest ever recorded.</div>
+      </div>
+
+      <p>Water was mapped with MNDWI and then constrained by terrain, because cloud shadow
+        suppressed the index on the flood date: a pixel counts as flood only where the ground
+        also lies below the observed flood level and connects to the channel.</p>
+
+      <p>The 29 July image is the last cloud-free pass before the peak — every number on this
+        poster is a <b>lower bound</b>.</p>
+    </div>
+  </div>
+
+  <!-- ===== cross-section ===== -->
+  <div class="h-rule">
+    <h2>Now turn the river ninety degrees</h2>
+    <span class="note">900 m across the valley · Copernicus DEM GLO-30</span>
+  </div>
+  <img src="lt_xsection.png" style="width:100%;display:block" alt="Cross-section">
+
+  <!-- ===== finding ===== -->
+  <div class="h-big">
+    <h2>Two banks, four hundred metres apart, <b>forty times the risk</b></h2>
+  </div>
+
+  <div class="find">
+    <div class="col">
+      <div class="who">North bank</div>
+      <div class="sub">low terrace · the side nobody fortified</div>
+      <div class="pct n-p">16.8%</div>
+      <div class="sub">of its buildings flooded &nbsp;(120 of 716)</div>
+      <div class="row"><span>391 ha flooded</span><b>~5,080 people</b></div>
+    </div>
+    <div class="col">
+      <div class="who">South bank</div>
+      <div class="sub">the 1586 bluff · historic centre</div>
+      <div class="pct s-p">0.4%</div>
+      <div class="sub">of its buildings flooded &nbsp;(18 of 4,437)</div>
+      <div class="row"><span>24 ha flooded</span><b>~560 people</b></div>
+    </div>
+    <div class="verdict">
+      <h3>A threshold, not a boundary</h3>
+      <p>The south bank holds <strong>six times more buildings</strong> — almost none went under.
+        The sixteenth-century choice still sorts the risk. But the north-bank
+        <strong>“second tier”</strong>, built above the floodplain and never flooded in living
+        memory, went under too. The 1586 logic is not a wall — it is a
+        <strong>gradient</strong>, and 2026 found its height.</p>
+    </div>
+  </div>
+
+  <!-- ===== UK relevance ===== -->
+  <div class="uk">
+    <div class="lead">
+      <h2>This is not only<br>a Siberian problem</h2>
+      <p>English towns were sited on the same reasoning. The risk is rarely in the old core — it
+        sits in what was built later, on ground earlier generations left alone.</p>
+      <span class="stat">6.3 million</span>
+      <p>English properties are in areas at risk of flooding — potentially <b>8 million, one in
+        four,</b> by mid-century.</p>
+    </div>
+    <div class="case">
+      <div class="case">
+        <h4>Tewkesbury, Severn &amp; Avon</h4>
+        <p>Its settlers used the “natural rises in the land” to avoid flooding. Abbey and old town
+          still stand on that raised ground — the modern town around them flooded in 2007.</p>
+      </div>
+      <div class="case">
+        <h4>Shrewsbury, Severn</h4>
+        <p>The medieval core sits inside a meander loop chosen for defence — the loop that now
+          holds water against the town. Frankwell flooded three times in six weeks in 2000.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="c a">
+      <span class="k">Method</span>
+      Sentinel-2 L2A, 18 Jun &amp; 29 Jul 2026 · MNDWI constrained by Copernicus DEM GLO-30
+      elevation and channel connectivity · exposure from OSM and WorldPop · Python.
+    </div>
+    <div class="c b">
+      <span class="k">Credits</span>
+      Copernicus Sentinel-2 and DEM GLO-30 (ESA) · basemap © OpenStreetMap contributors ·
+      WorldPop · UK figures Environment Agency NaFRA 2024 · river data Britannica.
+    </div>
+    <div class="c fin">
+      <span class="k">Field note</span>
+      <span class="fn">I spent two days of that July filling sandbags on the north bank — which
+      is how I came to wonder which side a town chooses.</span>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
