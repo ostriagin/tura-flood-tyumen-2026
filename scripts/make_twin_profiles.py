@@ -34,7 +34,7 @@ for fam in ("Poppins", "TeX Gyre Heros Cn", "DejaVu Sans"):
 plt.rcParams["text.color"] = INK
 
 MM = 1 / 25.4
-W_MM, H_MM = 280.0, 112.0
+W_MM, H_MM = 280.0, 76.0
 FIG_W, FIG_H = W_MM * MM, H_MM * MM
 
 
@@ -59,7 +59,7 @@ PANELS = [
         high_note="chosen in 1586.  Dry throughout.",
         low_label="THE NEW DISTRICT",
         low_note="120 of its 716 buildings went under",
-        bottom=74.0,
+        bottom=48.0,
     ),
     dict(
         d=sh["dist"], e=sh["elev"].astype(float),
@@ -70,12 +70,12 @@ PANELS = [
         high_note="castle, abbey, market.  Dry throughout.",
         low_label="FRANKWELL",
         low_note="flooded three times in six weeks",
-        bottom=22.0,
+        bottom=14.0,
     ),
 ]
 
 Y_TOP = 63.0          # metres above the channel, shared by both panels
-PAN_H_MM = 36.0
+PAN_H_MM = 24.0
 L_MM, R_MM = 13.0, 278.0
 
 fig = plt.figure(figsize=(FIG_W, FIG_H))
@@ -104,7 +104,7 @@ for spec in PANELS:
                     arrowprops=dict(arrowstyle="<->", color=YEL, linewidth=2.4,
                                     shrinkA=0, shrinkB=0), zorder=9)
         ax.text(x + 14, val / 2, "+%.0f m" % val, ha="left", va="center",
-                fontsize=17, fontweight="bold", color=YEL, zorder=10,
+                fontsize=13, fontweight="bold", color=YEL, zorder=10,
                 path_effects=[withStroke(linewidth=3.4, foreground=INK)])
 
     # --- bank captions, in the clear air above each side --------------------
@@ -118,8 +118,8 @@ for spec in PANELS:
             fontsize=10.9, color=GREY, zorder=8)
 
     # --- flood caption, lifted clear and tied down to the water surface -----
-    ax.plot([34, 34], [flood_h + 0.4, 26.6], color=RED, linewidth=1.1, zorder=8)
-    ax.text(42, 27.0, spec["flood_label"], ha="left", va="top",
+    ax.plot([34, 34], [flood_h + 0.4, 29.6], color=RED, linewidth=1.1, zorder=8)
+    ax.text(42, 30.0, spec["flood_label"], ha="left", va="top",
             fontsize=11, fontweight="bold", color=RED, zorder=8,
             linespacing=1.25)
 
@@ -133,7 +133,7 @@ for spec in PANELS:
     # --- town name, hung under the section ----------------------------------
     y = fy(spec["bottom"] - 2.5)
     fig.text(fx(L_MM), y, spec["town"], ha="left", va="top",
-             fontsize=19, fontweight="bold", color=INK)
+             fontsize=14, fontweight="bold", color=INK)
     fig.text(fx(L_MM + 60), y - fy(1.4), spec["sub"], ha="left", va="top",
              fontsize=11, color=GREY)
     fig.text(fx(R_MM), y - fy(1.4), "river surface  %.0f m" % base,
