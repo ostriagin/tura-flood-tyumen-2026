@@ -4,5 +4,11 @@
     "high": 36.406394958496094,
     "low": 11.497394561767578
   },
-  "separation_km": 4205.0
+  "separation_km": 4205.0,
+  "shrewsbury": {
+    "channel": 46.72999954223633,
+    "high": 26.785901679367313,
+    "low": 10.68065624549741
+  },
+  "note": "shrewsbury entry computed from data/processed/shrewsbury_cross_section_profile.npz; scripts/extract_transects.py regenerates it identically when the N52_00_W003_00 tile is present"
 }
