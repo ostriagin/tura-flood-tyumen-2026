@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Ground Remembers</title>
+<style>
+  /* A3 portrait. Competition minimum type size is 10pt; --min is 3.9mm = 11.05pt. */
+  @page { size: 297mm 420mm; margin: 0; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  :root{
+    --yel:#FFD400;
+    --ink:#10161C;
+    --red:#E63329;
+    --paper:#FFFFFF;
+    --grey:#6E777E;
+    --min:3.9mm;
+  }
+
+  html,body{ width:297mm; height:420mm; background:var(--paper); }
+  body{ font-family:"Poppins","DejaVu Sans",sans-serif; color:var(--ink);
+        -webkit-print-color-adjust:exact; print-color-adjust:exact; font-weight:400; }
+  .sheet{ width:297mm; height:420mm; overflow:hidden; position:relative; }
+  .pad{ padding-left:13mm; padding-right:13mm; }
+
+  /* ============================ masthead ============================ */
+  .mast{ background:var(--yel); height:80mm; position:relative; overflow:hidden;
+         padding:6mm 13mm 0; }
+  .eyebrow{ font-family:"DejaVu Sans Mono",monospace; font-size:var(--min);
+            letter-spacing:.05em; text-transform:uppercase; color:#6A5800; }
+  h1{ font-size:22mm; line-height:.86; font-weight:700; letter-spacing:-.022em;
+      text-transform:uppercase; margin-top:3mm; }
+  .dek{ font-size:4.15mm; line-height:1.24; max-width:170mm; margin-top:3.2mm; }
+  .dek b{ font-weight:600; }
+  .mast .orb{ position:absolute; right:-21mm; top:3.5mm; width:73mm; height:73mm;
+              border-radius:50%; overflow:hidden; }
+  .mast .orb img{ width:100%; height:100%; object-fit:cover; object-position:44% 50%; }
+  .mast .orbtag{ position:absolute; right:31mm; top:62mm; font-size:var(--min);
+                 color:#fff; text-align:right; line-height:1.2; font-weight:600;
+                 text-shadow:0 0 2.2mm rgba(0,0,0,.85), 0 0 .8mm rgba(0,0,0,.9); }
+
+  /* ============================ hero ============================ */
+  .kick{ display:flex; align-items:center; gap:3mm; margin:2.4mm 0 1.2mm; }
+  .kick .dot{ width:4mm; height:4mm; border-radius:50%; background:var(--red); flex:none; }
+  .kick h2{ font-size:5.3mm; font-weight:700; text-transform:uppercase;
+            letter-spacing:.01em; line-height:1.05; }
+  .kick .aside{ margin-left:auto; font-size:4.4mm; font-weight:600; color:var(--ink);
+                white-space:nowrap; }
+  .hero{ width:266mm; display:block; }
+
+  /* ============================ finding ============================ */
+  .find{ display:flex; align-items:center; gap:5mm; margin-top:1.6mm; }
+  .bub{ border-radius:50%; flex:none; background:var(--yel);
+        display:flex; flex-direction:column; align-items:center;
+        justify-content:center; text-align:center; }
+  .bub .n{ font-weight:700; line-height:.94; }
+  .bub .t{ font-size:var(--min); line-height:1.1; margin-top:.7mm; padding:0 3mm; }
+  .b3{ width:31mm; height:31mm; background:var(--ink); color:var(--yel); }
+  .b3 .n{ font-size:7mm; } .b3 .t{ color:#D9D2B4; }
+  .find .said{ font-size:4.8mm; line-height:1.24; font-weight:700; }
+  .find .said span{ display:block; font-size:var(--min); color:var(--grey);
+                    margin-top:1.3mm; line-height:1.26; font-weight:400; }
+
+  /* ============================ evidence ============================ */
+  .ev{ display:flex; gap:5mm; align-items:flex-start; margin-top:2.6mm; }
+  .disc{ width:38mm; flex:none; }
+  .disc img{ width:38mm; height:38mm; border-radius:50%; display:block; }
+  .disc .cap{ font-size:var(--min); line-height:1.15; margin-top:1.3mm; color:var(--grey); }
+  .disc .cap b{ color:var(--ink); font-weight:700; display:block;
+                text-transform:uppercase; letter-spacing:.02em; }
+  .evtext{ flex:1; }
+  .evtext p{ font-size:4.2mm; line-height:1.26; }
+  .evtext p b{ font-weight:700; color:var(--red); }
+  .stats{ display:flex; gap:3mm; margin-top:2.6mm; }
+  .st{ width:28.5mm; height:28.5mm; border-radius:50%; flex:none;
+       display:flex; flex-direction:column; align-items:center;
+       justify-content:center; text-align:center; border:1mm solid var(--ink); }
+  .st.hot{ background:var(--red); border-color:var(--red); color:#fff; }
+  .st .n{ font-size:4.9mm; font-weight:700; line-height:.95; }
+  .st .t{ font-size:var(--min); line-height:1.04; margin-top:.5mm; padding:0 2.6mm; }
+
+  /* ============================ threshold ============================ */
+  .thr{ display:flex; gap:4.5mm; margin-top:2.4mm; align-items:flex-start; }
+  .thr .mark{ width:15mm; height:15mm; border-radius:50%; background:var(--red);
+              color:#fff; flex:none; display:flex; align-items:center;
+              justify-content:center; font-size:8.5mm; font-weight:700; line-height:1; }
+  .thr h3{ font-size:5.1mm; font-weight:700; text-transform:uppercase; letter-spacing:.01em; }
+  .thr p{ font-size:4.2mm; line-height:1.26; margin-top:1.1mm; }
+  .thr p b{ font-weight:600; }
+
+  /* ============================ britain ============================ */
+  .brit{ background:var(--ink); color:#fff; margin-top:3.2mm;
+         padding:4.4mm 13mm 3.8mm; }
+  .brit h3{ font-size:7.4mm; font-weight:700; text-transform:uppercase; line-height:1; }
+  .brit h3 em{ font-style:normal; color:var(--yel); }
+  .bcols{ display:flex; gap:6mm; margin-top:3.4mm; align-items:flex-start; }
+  .bcols p{ font-size:4.1mm; line-height:1.26; color:#E7EAEC; }
+  .bcols p b{ color:var(--yel); font-weight:600; }
+  .bcols .c1{ flex:1.1; } .bcols .c2{ flex:.82; } .bcols .c3{ flex:1; }
+  .bnum{ font-size:11mm; font-weight:700; line-height:.92; color:var(--yel); }
+  .bnum small{ display:block; font-size:var(--min); font-weight:400;
+               color:#AEB6BC; margin-top:1.2mm; line-height:1.22; }
+  .ribbon{ margin-top:3.6mm; }
+  .ribbon .rl{ display:flex; align-items:center; gap:2.2mm; }
+  .ribbon .nm{ font-size:4mm; font-weight:700; text-transform:uppercase;
+               letter-spacing:.03em; white-space:nowrap; }
+  .ribbon .ar{ flex:1; height:.6mm; background:#3A444C; }
+  .ribbon .sea{ color:var(--yel); }
+  .ribbon .note{ font-size:var(--min); color:#AEB6BC; margin-top:1.5mm; line-height:1.24; }
+  .ribbon .note b{ color:#fff; font-weight:600; }
+
+  /* ============================ footer ============================ */
+  .foot{ padding:3.2mm 13mm 0; display:flex; gap:5mm; }
+  .foot p{ font-size:var(--min); line-height:1.22; color:var(--grey); }
+  .foot p b{ color:var(--ink); font-weight:700; }
+  .src{ padding:1.8mm 13mm 0; font-size:var(--min); line-height:1.22; color:var(--grey); }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- ===================== masthead ===================== -->
+  <div class="mast">
+    <div class="eyebrow">RGS Young Geographer of the Year 2026 &nbsp;·&nbsp; From Source to Sea &nbsp;·&nbsp; KS5</div>
+    <h1>The ground<br>remembers</h1>
+    <p class="dek">Every old river town in Britain stands where it does because somebody once read the ground and worked out where the water goes. We have spent a century building on the parts they left alone. In July&nbsp;2026 a Siberian city found out what that costs — <b>so I measured it, and cut the same section through Shropshire.</b></p>
+    <div class="orb"><img src="assets/sq_flood.png" alt="The Tura at Tyumen at the flood peak, Sentinel-2"></div>
+    <div class="orbtag">The Tura at Tyumen,<br>29 July 2026</div>
+  </div>
+
+  <div class="pad">
+
+    <!-- ===================== hero ===================== -->
+    <div class="kick">
+      <div class="dot"></div>
+      <h2>Two towns, 4,205&nbsp;km apart, cut to the same scale</h2>
+      <div class="aside">Sasha Ostriagin &nbsp;·&nbsp; Bromsgrove School</div>
+    </div>
+    <img class="hero" src="assets/twin_profiles.png" alt="Terrain cross-sections of Tyumen on the Tura and Shrewsbury on the Severn, drawn to the same scale">
+
+    <!-- ===================== the finding ===================== -->
+    <div class="find">
+      <div class="bub b3"><div class="n">4,205</div><div class="t">km apart</div></div>
+      <div class="said">The two low banks match to within a metre.
+        <span>Nobody coordinated this. Two river towns, five centuries and four thousand kilometres apart — and the ground their founders refused sits at almost exactly the same height above the water, as does the ground their descendants later accepted. Read the section and you can see the decision, and the drift away from it.</span></div>
+    </div>
+
+    <!-- ===================== evidence ===================== -->
+    <div class="ev">
+      <div class="disc">
+        <img src="assets/sq_pre.png" alt="The Tura at Tyumen before the flood">
+        <div class="cap"><b>18 June 2026</b>137 ha of water</div>
+      </div>
+      <div class="disc">
+        <img src="assets/sq_flood.png" alt="The Tura at Tyumen during the flood">
+        <div class="cap"><b>29 July 2026</b>415 ha of water</div>
+      </div>
+      <div class="evtext">
+        <p>The Tura <b>tripled</b>. A record 8.9&nbsp;m rise put 281&nbsp;hectares of dry land under water — 40&nbsp;km of road on the low bank against 11&nbsp;km on the high — and almost all of the damage fell on the side the founders had left empty.</p>
+        <div class="stats">
+          <div class="st hot"><div class="n">1 in 6</div><div class="t">buildings flooded, low bank</div></div>
+          <div class="st"><div class="n">1 in 250</div><div class="t">buildings flooded, high bank</div></div>
+          <div class="st hot"><div class="n">9&times;</div><div class="t">more people in the water</div></div>
+          <div class="st"><div class="n">40 km</div><div class="t">of road under water</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== threshold ===================== -->
+    <div class="thr">
+      <div class="mark">!</div>
+      <div>
+        <h3>The old rule held for 440 years. Then it didn't.</h3>
+        <p>The 2026 peak climbed onto the <b>second terrace</b> — ground raised above the floodplain, built on in the belief that it stood clear — and it went under for the first time in living memory. Four centuries of siting logic is not a boundary but a <b>threshold</b>, and a record flood is what finds it.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== britain ===================== -->
+  <div class="brit">
+    <h3>So what does this mean <em>here?</em></h3>
+    <div class="bcols">
+      <div class="c1">
+        <p>Shrewsbury's gauge board at the Welsh Bridge starts at <b>47.0&nbsp;m above sea level</b>; the highest water ever recorded there, in 1795, stood 5.70&nbsp;m up it. The medieval town, 27&nbsp;m up, has never been the problem. <b>Frankwell</b>, eleven metres up, flooded three times in six weeks in 2000.</p>
+      </div>
+      <div class="c2">
+        <div class="bnum">6.3m &rarr; 8m<small>properties in England in areas at risk of flooding today, and by mid-century on the Environment Agency's own projection — one property in four.</small></div>
+      </div>
+      <div class="c3">
+        <p>Free satellite imagery, a free 30&nbsp;m elevation model, a few hundred lines of Python. <b>Any town in Britain can be sectioned this way in an afternoon.</b> The question is not whether a river floods, but how far above the water we are building now.</p>
+      </div>
+    </div>
+
+    <div class="ribbon">
+      <div class="rl">
+        <span class="nm">Tura</span><span class="ar"></span>
+        <span class="nm">Tobol</span><span class="ar"></span>
+        <span class="nm">Irtysh</span><span class="ar"></span>
+        <span class="nm">Ob</span><span class="ar"></span>
+        <span class="nm sea">Kara Sea</span>
+        <span style="width:10mm"></span>
+        <span class="nm">Severn</span><span class="ar"></span>
+        <span class="nm sea">Bristol Channel</span>
+      </div>
+      <div class="note">Tyumen's gauge zero sits <b>48.5&nbsp;m above sea level</b>, and the water that came over the embankment still has the Tobol, the Irtysh and the Ob to cross before it reaches the Arctic. Two continents, one habit: keep the oldest streets up on the bank, then build downhill.</div>
+    </div>
+  </div>
+
+  <!-- ===================== footer ===================== -->
+  <div class="foot">
+    <p><b>Method.</b> Sentinel-2 L2A (10&nbsp;m), 18&nbsp;June and 29&nbsp;July 2026. MNDWI (Xu, 2006) constrained by elevation and by connectivity to the channel. Terrain: Copernicus DEM GLO-30, 5&nbsp;m sampling.</p>
+    <p><b>Limits.</b> GLO-30 is a surface model — rooftops, not bare earth — so no flood depth is modelled for Shrewsbury. The Tyumen figures are a lower bound: the image precedes the peak.</p>
+    <p><b>Sasha Ostriagin</b>, Bromsgrove School. I filled sandbags on the north bank for two days as the water came up. Code, data and QGIS project are public.</p>
+  </div>
+  <div class="src">Sources: Copernicus Sentinel-2 and DEM GLO-30 (ESA) · OpenStreetMap · WorldPop · Shropshire Council Welsh Bridge gauge board · Environment Agency NaFRA 2024.</div>
+
+</div>
+</body>
+</html>

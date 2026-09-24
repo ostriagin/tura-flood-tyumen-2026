@@ -30,10 +30,12 @@ report/           report.md (source) and tura_flood_report.pdf (built with pando
 | Data | Source | Detail |
 |---|---|---|
 | Sentinel-2 L2A imagery | [Copernicus Data Space Ecosystem](https://dataspace.copernicus.eu/), via [Copernicus Browser](https://browser.dataspace.copernicus.eu/) | Tile T41VPD (UTM 41N, EPSG:32641). Two dates: **18 June 2026** (pre-flood) and **29 July 2026** (flood peak). Bands B02, B03, B04, B11 exported via the Browser's Analytical download. |
-| Copernicus DEM GLO-30 | [Copernicus DEM](https://copernicus-dem-30m.s3.amazonaws.com/) (public AWS Open Data bucket `copernicus-dem-30m`) | Tile `Copernicus_DSM_COG_10_N57_00_E065_00_DEM.tif`, ~30 m resolution, EPSG:4326. |
+| Copernicus DEM GLO-30 | [Copernicus DEM](https://copernicus-dem-30m.s3.amazonaws.com/) (public AWS Open Data bucket `copernicus-dem-30m`) | Two tiles, ~30 m, EPSG:4326: `Copernicus_DSM_COG_10_N57_00_E065_00_DEM.tif` (Tyumen) and `Copernicus_DSM_COG_10_N52_00_W003_00_DEM.tif` (Shrewsbury, used for the comparative cross-section on the poster). GLO-30 is a **surface** model: over built-up ground it returns rooftops and canopy, not bare earth. |
 | OpenStreetMap | © OpenStreetMap contributors, via the [Overpass API](https://overpass-api.de/) | `/api/map?bbox=65.50,57.14,65.56,57.17` — buildings, roads and the Tura waterway centreline. Extracted September 2026. |
 | Population | [WorldPop Global Project Population Data](https://www.worldpop.org/), unconstrained, 2020, 100 m (`wpgppop`), via the [WorldPop REST API](https://www.worldpop.org/sdi/introapi/) | Queried per flood sub-polygon; see `scripts/polygonize_and_exposure.py` output and `data/processed/exposure_summary.json`. |
 | Gauge data | Tyumen city hydrological gauge (open reporting during the July 2026 flood) | Gauge zero = 48.52 m a.s.l. (Baltic height system); peak = 891 cm on 31 July 2026 = 57.43 m a.s.l. |
+| Gauge data (Shrewsbury) | Shropshire Council, [Welsh Bridge gaugeboard](https://shropshire.gov.uk/committee-services/documents/s19271/Welsh%20Bridge%20Gaugeboard.pdf) | Datum 47.0 m AOD; 1 November 2000 peak = 5.25 m = 52.25 m AOD; highest known (1795) = 5.70 m = 52.70 m AOD. The gaugeboard states its levels are indicative only. |
+| England flood-risk figures | Environment Agency, National Flood Risk Assessment, [December 2024](https://environmentagency.blog.gov.uk/2024/12/17/transforming-our-understanding-of-flood-and-coastal-erosion-risk-in-england) | ~6.3 m properties currently in areas at risk; ~8 m (1 in 4) by mid-century. |
 
 ## Reproducing the raw data
 
@@ -43,10 +45,38 @@ reproducible). To rebuild it:
 1. **Sentinel-2**: in the Copernicus Browser, search tile T41VPD / Tyumen for
    18 June 2026 and 29 July 2026, and export bands B02/B03/B04/B11 (Analytical
    download) to `data/raw/s2_20260618/` and `data/raw/s2_20260729/` respectively.
-2. **DEM**: download
+2. **DEM**: download, to `data/raw/` (public, unauthenticated):
    `https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N57_00_E065_00_DEM/Copernicus_DSM_COG_10_N57_00_E065_00_DEM.tif`
-   to `data/raw/Copernicus_DSM_COG_10_N57_00_E065_00_DEM.tif` (public, unauthenticated).
+   and, for the Shrewsbury comparison,
+   `https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N52_00_W003_00_DEM/Copernicus_DSM_COG_10_N52_00_W003_00_DEM.tif`
+   With both tiles in place, `python scripts/extract_transects.py` regenerates both
+   cross-section profiles from scratch. The committed
+   `data/processed/shrewsbury_cross_section_profile.npz` was produced by that same
+   routine (bilinear, 5 m spacing, 181 points); the working environment could not
+   download the whole tile, so its pixels were read over HTTP range requests against
+   the same public object. Running the script with the tile present reproduces it.
 3. **OSM**: `curl "https://overpass-api.de/api/map?bbox=65.50,57.14,65.56,57.17" -o data/raw/osm_tyumen_extract.osm`
+
+## The poster
+
+`poster/poster_v4.html` -> `poster/the_ground_remembers_A3.pdf` (A3, one page,
+rendered with Playwright/Chromium via `poster/render_v4.py`), plus
+`poster/the_ground_remembers_EDITABLE_A3.pptx`, an editable draft in which every
+element is a native PowerPoint object (`poster/build_pptx_v4.py`).
+
+The poster's hero graphic is built by `scripts/make_twin_profiles.py` from the two
+profiles produced by `scripts/extract_transects.py`. Headline comparison:
+
+| | Tura at Tyumen | Severn at Shrewsbury |
+|---|---:|---:|
+| DEM river surface | 48.2 m | 46.7 m |
+| Historic core, mean height above the river | +36.4 m | +26.8 m |
+| Low-bank district, mean height above the river | +11.5 m | +10.7 m |
+| Highest recorded flood, above the river | +9.3 m (2026) | +5.5 m (2000) |
+
+Sites are 4,205 km apart. No inundation depth is modelled for Shrewsbury: GLO-30
+is a surface model, so over Frankwell's built-up ground it returns rooftops
+rather than the bare earth a depth calculation would need.
 
 ## Method summary
 

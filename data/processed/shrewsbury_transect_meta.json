@@ -1,0 +1,25 @@
+{
+  "town": "Shrewsbury, Shropshire, England",
+  "dem": "Copernicus DEM GLO-30, tile Copernicus_DSM_COG_10_N52_00_W003_00_DEM",
+  "dem_type": "DSM (surface model: includes buildings and vegetation)",
+  "crs": "EPSG:4326, vertical datum EGM2008",
+  "sampling": "bilinear, 5 m spacing, 181 points, +/-450 m about the channel minimum",
+  "centre_lat_lon": [
+    52.710271,
+    -2.755777
+  ],
+  "unit_vector_east_north_for_positive_distance": [
+    -0.886,
+    0.4634
+  ],
+  "negative_distance": "SE - medieval Shrewsbury, inside the Severn meander (high ground)",
+  "positive_distance": "NW - Frankwell, outside the meander (low ground)",
+  "channel_min_m": 46.73,
+  "gauge": "River Severn at Welsh Bridge, Shrewsbury",
+  "gauge_zero_mAOD": 47.0,
+  "peak_2000_11_01_gauge_m": 5.25,
+  "peak_2000_11_01_mAOD": 52.25,
+  "highest_known_1795_gauge_m": 5.7,
+  "highest_known_1795_mAOD": 52.7,
+  "gauge_source": "Shropshire Council, Welsh Bridge gaugeboard (levels stated as indicative only)"
+}
