@@ -1,112 +1,109 @@
-# Poster text — for you to rewrite in your own words
+# Poster text — for you to rewrite
 
 The RGS guidelines say entrants **"must not use an AI system to generate all or a
-large part of the text."** I drafted the wording below; you need to rewrite it so
-the words are yours. The measurements, figures and sources are all real and
-checked — keep those. Change the sentences.
+large part of the text."** I wrote the wording below; it needs to be yours.
 
-Rough guide: same length or shorter. If a block gets much longer the layout will
-break, and I'll have to re-fit it. Send it back and I'll drop it into the poster.
+You can edit it straight in **nowhere_to_go_EDITABLE_A3.pptx** — every block is a
+live text box. This file is just a list of what's on there, so you can draft
+away from the layout if that's easier.
+
+**Keep:** every number, date and place name — those are measured or sourced.
+**Change:** the sentences.
+**Length:** same or shorter. Each box is fitted; much longer and it reflows.
 
 ---
 
 ## TITLE
-**OUT OF DOWNHILL**
+**NOWHERE / TO GO**
 
 ## STANDFIRST
-The Tura rises at 370 m in the Middle Urals and reaches the Kara Sea through the
-Tobol, the Irtysh and the Ob. **It does four-fifths of its falling in the first
-98 km.** The swamps that hold half of Russia's marshland, a 3,650 km river with a
-single dam, an estuary a thousand kilometres long, a water conflict with China,
-and the flood that put my own city under in August 2026 all follow from what
-happens next: a gradient of about five centimetres per kilometre. I measured that
-gradient from satellite elevation data, then measured what it did to Tyumen.
+The **Tura** rises at 370 m in the Ural mountains and reaches the Arctic through
+the **Tobol**, the **Irtysh** and the **Ob**. **It does four-fifths of its falling
+in the first 98 km.** After that it drops five centimetres per kilometre — so when
+the water rises it cannot run away downstream. It spreads. That is why half of
+Russia's marshland is here, and why **Tyumen** went under in August 2026.
+
+## THE PLACE-NAME BAR — leave as is
+Definitions, not prose. Rewriting risks making them wrong.
+- **TYUMEN** — Oldest Russian city in Siberia, 1586.
+- **TURA** — Tyumen's river. 1,030 km, from the Urals.
+- **TOBOL** — The river the Tura runs into. 1,591 km.
+- **IRTYSH** — 4,248 km, from China. Takes the Tobol.
+- **OB** — 3,650 km more, to the Arctic Ocean.
 
 ---
 
-## 1. WHAT THE GRADIENT BUILDS
+## THE THREE BOXES
 
-**Upper course — 370 m to 92 m**
-Steep gradient, high potential energy, so erosion is vertical: hydraulic action
-and abrasion cut down faster than the sides retreat, giving a narrow V-shaped
-valley and interlocking spurs. Load is coarse and angular.
+**What the gradient builds**
+Steep upper course: vertical erosion cuts a V-shaped valley. Once the gradient
+collapses, lateral erosion takes over — the river meanders and widens a
+floodplain, then abandons it. Those are the river terraces Tyumen is built on.
 
-**Middle course — the plain**
-The gradient collapses and lateral erosion takes over. The Tura meanders,
-undercutting outer banks, building point bars on inner ones, widening a
-floodplain it then abandons in stages. Those abandoned floodplains are the river
-terraces Tyumen stands on — and the reason one bank of the city floods and the
-other does not.
+**Why so much of it drowns**
+With almost no slope the channels cannot clear meltwater or rain: half of all the
+marshland in Russia is in this basin. The Ob also flows north, so meltwater from
+the thawing south meets 2 m of ice and spreads up to 50 km sideways.
 
-**Lower course — the Ob**
-Valley 30–50 km wide, floodplain 20–30 km, and below the Irtysh the spring flood
-spreads 40–50 km across it: the second largest floodplain on Earth. It ends in a
-delta of 4,000 km² and the Gulf of Ob — at 800–1,000 km the world's longest
-estuary, and only 10–12 m deep.
-
-**Why so much of it is swamp**
-With almost no slope the channels cannot evacuate meltwater or rain, so it sits
-on the interfluves. Half of all the marshland in Russia is in this basin. A
-seventh of the catchment drains internally and never reaches the Ob at all.
-The Ob also flows north. The south thaws first, so meltwater arrives while the
-lower river is still sealed under 2 m of ice — it backs up and spreads sideways.
+**Who wants the water**
+27 million people; two-thirds of Russia's oil and gas. Flat ground allows just one
+dam on 3,650 km of Ob. Upstream, China's Irtysh–Karamay canal takes 2.5 km³ a year
+from the longest transboundary tributary on Earth, with no treaty.
 
 ---
 
-## 2. A RIVER AT WORK
+## WHAT HAPPENED AT TYUMEN
 
-**People**
-27 million people, 39 cities over 100,000. The fields of the middle and lower Ob
-give about two-thirds of Russia's oil and gas. Navigable ~190 days a year
-upstream, 150 downstream, 100–110 in the Gulf; warming is adding 5.3 days a
-decade.
+Rain on the headwaters in the Ural mountains. Seven hundred kilometres downstream
+the Tura rose for three weeks and peaked at 897 cm on 2 August 2026 — a record
+summer flood. I filled sandbags on the low bank for two days, then mapped it from
+Sentinel-2.
 
-**Energy — the gradient again**
-3,650 km of Ob carries one hydroelectric station: Novosibirsk, 490 MW, whose
-reservoir floods 1,070 km². Flat ground buys no head and drowns huge areas. The
-Irtysh, falling out of the Altai, carries three larger ones — Shulbinsk 702 MW,
-Bukhtarma 675 MW, Ust-Kamenogorsk ~330 MW.
+*Stat:* **1 in 6** buildings flooded on the low bank, against 1 in 250 on the high
+bank. Nine times as many people were in the water.
 
-**Conflict: whose water is the Irtysh?**
-It is the longest transboundary tributary in the world — rising in China,
-crossing Kazakhstan, entering Russia. China's Irtysh–Karamay canal, begun 1994,
-already takes over 2.5 km³ a year and is built for 5–7. Downstream it is drinking
-water for four million Kazakhs.
-There is still no allocation agreement. China has signed neither the UN
-Watercourses nor the UNECE Water Convention, and under its law Russia is not a
-party at all — the river never crosses their shared border.
+*Photo captions:* 18 JUNE — 137 ha / 29 JULY — 415 ha, tripled.
 
-**Nature**
-The Vasyugan Mire — 53,000–55,000 km², the largest mire system in the northern
-hemisphere — sits on the Ob–Irtysh watershed and holds 400 km³ of fresh water.
-Only ~11% is protected. The Ob estuary feeds up to 3 million migrating birds.
-Sturgeon catch fell from 1,410 tonnes in the 1930s to 11 by 1997, 40% of the
-spawning grounds cut off by the dams above.
+*Labels inside the section graphic (tell me and I'll regenerate it):*
+HIGH BANK — the 1586 town. Stayed dry.
+LOW BANK — built since the 1960s. 1 in 6 buildings flooded.
 
 ---
 
-## 3. WHAT I MEASURED AT TYUMEN
-
-Rain on the headwaters in the Middle Urals. Seven hundred kilometres downstream
-the Tura rose for three weeks through my home city, peaking at 897 cm on
-2 August 2026 — a record summer flood. I filled sandbags for two days, then
-mapped it from Sentinel-2.
-
-*(image captions)*
-- 18 JUNE — 137 ha of water
-- 29 JULY — 415 ha — the river tripled
-- **1 in 6** buildings flooded on the low north bank, against 1 in 250 on the
-  high south bank.
-
-*(closing)*
-The 1586 fort took the bluff 36 m up; everything added since sits 11 m up. The
-same section through Shrewsbury puts the old town 27 m up and Frankwell — flooded
-three times in six weeks in 2000 — 11 m up. 6.3 million English properties are at
-risk now; 8 million by mid-century.
+## THE BAND ACROSS THE MIDDLE
+**Tyumen's low bank sits 11 m above the river.
+So does Frankwell, in Shrewsbury.**
 
 ---
 
-## FOOTER — leave this alone
+## WHAT COULD HAPPEN HERE
 
-The method, sources and image-credit lines are factual statements, not prose.
-They should stay as they are; rewriting them risks breaking a citation.
+The Severn at Shrewsbury has the same shape as the Tura at Tyumen: a medieval town
+on the high bank, and a district on the low bank that floods. Same section,
+different country.
+
+*Stat:* **6.3m → 8m** — English properties in areas at risk of flooding today, and
+by mid-century on the Environment Agency's own projection — one property in four.
+
+**What the two sections say.** Height above the river predicts flooding better
+than any line on a map, and it costs nothing to measure — the elevation data is
+free, global and open. The question is not whether a river floods, but how far
+above it we are building, and where the next river terrace up begins.
+
+*Labels inside the section graphic:*
+HIGH BANK — the medieval town. Has never been the problem.
+LOW BANK — Frankwell. Flooded 3 times in 6 weeks in 2000.
+
+---
+
+## FOOTER — leave as is
+The credits and the © European Union / ESA line the rules require.
+
+---
+
+## Still to do
+1. Rewrite the blocks above.
+2. Rename the file: submission code + your initials + KS5 (e.g. `2AR-14-03-GM-SO-KS5`).
+   The code is the last three characters of the school postcode, the day, the
+   month, and your teacher's initials.
+3. Push the repository, so "full list in the repository" is true.
