@@ -27,10 +27,10 @@ PROC = os.path.join(ROOT, "data", "processed")
 ASSETS = os.path.join(ROOT, "poster", "assets")
 os.makedirs(ASSETS, exist_ok=True)
 
-INK = "#10161C"
-RED = "#E63329"
-YEL = "#FFD400"
-GREY = "#707A82"
+INK = "#14181C"
+RED = "#D92B1E"
+YEL = "#14181C"      # span arrow: dark, for the yellow ground
+GREY = "#6A6550"
 BLUE = "#1C6E8C"
 
 for fam in ("Poppins", "TeX Gyre Heros Cn", "DejaVu Sans"):
@@ -80,8 +80,8 @@ json.dump(
     open(os.path.join(PROC, "long_profile.json"), "w"), indent=2)
 
 MM = 1 / 25.4
-W_MM, H_MM = 396.0, 68.0
-L_MM, R_MM, B_MM, T_MM = 26.0, 390.0, 23.0, 53.0
+W_MM, H_MM = 400.0, 60.0
+L_MM, R_MM, B_MM, T_MM = 26.0, 394.0, 21.0, 47.0
 
 fig = plt.figure(figsize=(W_MM * MM, H_MM * MM))
 fig.patch.set_alpha(0)
@@ -109,28 +109,28 @@ ax.text(dist[brk] + 55, 296,
         "The Tura leaves the Middle Urals — and is never steep again.",
         fontsize=10.6, color=GREY, ha="left", va="top", zorder=9)
 
-ax.annotate("", xy=(dist[brk] + 40, 150), xytext=(dist[-1] - 40, 150),
+ax.annotate("", xy=(dist[brk] + 40, 128), xytext=(dist[-1] - 40, 128),
             arrowprops=dict(arrowstyle="<->", color=YEL, linewidth=2.8), zorder=8)
 fall2 = elev[brk] - elev[-1]
 run2 = dist[-1] - dist[brk]
-ax.text((dist[brk] + dist[-1]) / 2, 202,
+ax.text((dist[brk] + dist[-1]) / 2, 172,
         "%.0f m of fall in the next %s km" % (fall2, format(int(round(run2, -1)), ",")),
         fontsize=15.5, fontweight="bold", color=INK, ha="center", va="center",
-        zorder=9, path_effects=[withStroke(linewidth=3.4, foreground="white")])
+        zorder=9, path_effects=[withStroke(linewidth=3.4, foreground="#FDF4CE")])
 ve = ((X1 - X0) / (R_MM - L_MM) * 1000.0) / (Y_TOP / (T_MM - B_MM))
-ax.text((dist[brk] + dist[-1]) / 2, 104,
+ax.text((dist[brk] + dist[-1]) / 2, 92,
         "about %.0f cm per kilometre. The profile below is exaggerated "
         "×%s to be visible at all." % (100 * fall2 / run2,
                                          format(int(round(ve, -1)), ",")),
         fontsize=10.6, color=GREY, ha="center", va="center", zorder=9,
-        path_effects=[withStroke(linewidth=3.0, foreground="white")])
+        path_effects=[withStroke(linewidth=3.0, foreground="#FDF4CE")])
 
 BIG = {"TYUMEN", "Source, Middle Urals", "Gulf of Ob"}
 for (name, river, la, lo, e, note), d in zip(WAYPOINTS, dist):
     big = name in BIG
     ax.plot([d], [e], marker="o", markersize=6.8 if big else 4.2,
             color=RED if name == "TYUMEN" else INK, zorder=10,
-            markeredgecolor="white", markeredgewidth=1.0)
+            markeredgecolor="#FDF4CE", markeredgewidth=1.0)
 
 ax.set_xlim(X0, X1)
 ax.set_ylim(0, Y_TOP)

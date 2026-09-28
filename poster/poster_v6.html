@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Out of Downhill</title>
+<style>
+  /* A3 LANDSCAPE. Competition minimum type size is 10pt; --min = 3.66mm = 10.4pt. */
+  @page { size: 420mm 297mm; margin: 0; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  :root{
+    --bg:#FDF4CE;          /* hazard yellow ground */
+    --ink:#14181C;
+    --red:#D92B1E;
+    --hi:#FFD400;          /* signal yellow */
+    --grey:#6A6550;
+    --card:#FFFFFF;
+    --min:3.66mm;
+  }
+  html,body{ width:420mm; height:297mm; background:var(--bg); }
+  body{ font-family:"Poppins","DejaVu Sans",sans-serif; color:var(--ink);
+        -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .sheet{ width:420mm; height:297mm; overflow:hidden; position:relative;
+          background:var(--bg); }
+  .pad{ padding:0 10mm; }
+
+  .stripe{ background:repeating-linear-gradient(-45deg,
+           var(--ink) 0 3.2mm, var(--hi) 3.2mm 6.4mm); }
+
+  /* ---------------- header ---------------- */
+  .head{ display:flex; align-items:flex-end; gap:7mm; padding:3mm 10mm 2.5mm; }
+  .head h1{ font-size:11.5mm; line-height:.86; font-weight:700; letter-spacing:-.02em;
+            text-transform:uppercase; flex:none; }
+  .head h1 em{ font-style:normal; color:var(--red); }
+  .head .dek{ font-size:4mm; line-height:1.25; flex:1; }
+  .head .dek b{ font-weight:600; }
+  .head .who{ flex:none; text-align:right; font-size:var(--min); line-height:1.25;
+              color:var(--grey); }
+  .head .who b{ display:block; font-size:4.3mm; font-weight:700; color:var(--ink);
+                text-transform:uppercase; }
+  .eyebrow{ font-family:"DejaVu Sans Mono",monospace; font-size:var(--min);
+            letter-spacing:.05em; text-transform:uppercase; color:var(--grey);
+            padding:0 10mm; line-height:1.1; }
+  .rule{ height:1.1mm; }
+
+  /* ---------------- key terms ---------------- */
+  .terms{ display:flex; gap:2.2mm; margin-top:1.8mm; }
+  .term{ flex:1; background:var(--card); border-left:1.3mm solid var(--ink);
+         padding:1.3mm 1.8mm; }
+  .term b{ display:block; font-size:var(--min); font-weight:700;
+           text-transform:uppercase; letter-spacing:.02em; line-height:1.2; }
+  .term span{ font-size:var(--min); line-height:1.14; color:var(--grey); }
+
+  /* term marker used in the body */
+  .t{ font-weight:700; border-bottom:.5mm solid var(--hi); }
+
+  /* ---------------- spine ---------------- */
+  .spine{ width:400mm; display:block; margin:1.6mm 0 0 0; }
+
+  /* ---------------- theory strip ---------------- */
+  .theory{ display:flex; gap:2.6mm; margin-top:1.6mm; }
+  .tbox{ flex:1; background:var(--card); padding:1.4mm 2mm; }
+  .tbox h3{ font-size:4mm; font-weight:700; text-transform:uppercase; }
+  .tbox p{ font-size:var(--min); line-height:1.18; margin-top:.6mm; }
+  .tbox p b{ font-weight:600; }
+
+  /* ---------------- evidence rows ---------------- */
+  .row{ display:flex; gap:4mm; margin-top:1.8mm; align-items:flex-start; }
+  .rowhead{ display:flex; align-items:center; gap:3mm; margin-top:1.8mm; }
+  .rowhead .tag{ background:var(--ink); color:var(--hi); font-size:4.6mm;
+                 font-weight:700; text-transform:uppercase; padding:1mm 3mm;
+                 letter-spacing:.03em; }
+  .rowhead .tag.red{ background:var(--red); color:#fff; }
+  .rowhead p{ font-size:4mm; line-height:1.2; flex:1; }
+  .rowhead p b{ font-weight:600; }
+
+  .sec{ width:214mm; display:block; flex:none; }
+  .side{ flex:1; }
+
+  .discs{ display:flex; gap:2.6mm; align-items:flex-start; }
+  .disc{ flex:0 0 36mm; }
+  .stat{ flex:1; }
+  .stat .n{ font-size:10mm; font-weight:700; line-height:.92; color:var(--red); }
+  .stat p{ font-size:var(--min); line-height:1.18; margin-top:1mm; }
+  .stat p b{ font-weight:600; }
+  .disc img{ width:100%; aspect-ratio:1/1; border-radius:50%; display:block; }
+  .disc .c{ font-size:var(--min); line-height:1.1; margin-top:1mm; color:var(--grey); }
+  .disc .c b{ display:block; color:var(--ink); text-transform:uppercase; }
+
+  .big{ margin-top:2.4mm; }
+  .big .n{ font-size:11mm; font-weight:700; line-height:.92; color:var(--red); }
+  .big .n small{ font-size:5mm; color:var(--ink); }
+  .big p{ font-size:var(--min); line-height:1.2; margin-top:1mm; }
+  .big p b{ font-weight:600; }
+
+  /* ---------------- the cut ---------------- */
+  .cut{ margin-top:2mm; height:14.5mm; position:relative;
+        clip-path:polygon(0 0,100% 0,100% 52%,53% 100%,47% 100%,0 52%);
+        display:flex; align-items:center; justify-content:center; }
+  .cut .msg{ background:var(--ink); color:#fff; font-size:5mm; font-weight:700;
+             line-height:1.12; padding:1.4mm 6mm; text-align:center;
+             margin-bottom:2.4mm; }
+  .cut .msg em{ font-style:normal; color:var(--hi); }
+
+  /* ---------------- footer ---------------- */
+  .foot{ position:absolute; left:10mm; right:10mm; bottom:2mm;
+         font-size:var(--min); line-height:1.14; color:var(--grey); }
+  .foot b{ color:var(--ink); font-weight:700; }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="rule stripe"></div>
+  <div class="eyebrow" style="padding-top:2mm">RGS Young Geographer of the Year 2026 &nbsp;·&nbsp; From Source to Sea &nbsp;·&nbsp; Key Stage 5</div>
+  <div class="head">
+    <h1>Out of<br><em>downhill</em></h1>
+    <p class="dek">The Tura rises at 370&nbsp;m in the Middle Urals and reaches the Kara Sea through the Tobol, the Irtysh and the Ob. <b>It does four-fifths of its falling in the first 98&nbsp;km.</b> After that its <span class="t">gradient</span> is five centimetres per kilometre — and almost everything downstream follows from that number, including the flood that put my home city under in August 2026.</p>
+    <div class="who"><b>Sasha Ostriagin</b>Bromsgrove School</div>
+  </div>
+
+  <div class="pad">
+    <!-- =============== key terms =============== -->
+    <div class="terms" style="margin-top:0">
+      <div class="term"><b>Long profile</b><span>A river's fall from source to sea.</span></div>
+      <div class="term"><b>Gradient</b><span>Metres dropped per kilometre.</span></div>
+      <div class="term"><b>Floodplain</b><span>The valley floor a full river covers.</span></div>
+      <div class="term"><b>River terrace</b><span>An old floodplain, now stranded above.</span></div>
+      <div class="term" style="border-left-color:var(--red)"><b>High bank / low bank</b><span>One side high above the water, one low.</span></div>
+    </div>
+
+    <!-- =============== the long profile =============== -->
+    <img class="spine" src="assets/long_profile.png" alt="Long profile of the Tura, Tobol, Irtysh and Ob from the Middle Urals to the Kara Sea, measured from Copernicus DEM GLO-30">
+
+    <!-- =============== theory strip =============== -->
+    <div class="theory">
+      <div class="tbox">
+        <h3>What the gradient builds</h3>
+        <p>Steep upper course: vertical erosion cuts a V-shaped valley. Once the <span class="t">gradient</span> collapses, lateral erosion takes over — the river meanders and widens a <span class="t">floodplain</span>, then abandons it. Those are the <span class="t">river terraces</span> Tyumen is built on.</p>
+      </div>
+      <div class="tbox">
+        <h3>Why so much of it drowns</h3>
+        <p>With almost no slope the channels cannot clear meltwater or rain: <b>half of all the marshland in Russia</b> is in this basin. The Ob also flows <b>north</b>, so meltwater from the thawing south meets 2&nbsp;m of ice and spreads up to 50&nbsp;km sideways.</p>
+      </div>
+      <div class="tbox">
+        <h3>Who wants the water</h3>
+        <p>27 million people; two-thirds of Russia's oil and gas. Flat ground allows just <b>one dam on 3,650&nbsp;km of Ob</b>. Upstream, China's Irtysh–Karamay canal takes <b>2.5&nbsp;km³ a year</b> from the longest transboundary tributary on Earth, with no treaty.</p>
+      </div>
+    </div>
+
+    <!-- =============== TYUMEN =============== -->
+    <div class="rowhead">
+      <div class="tag">What happened at Tyumen</div>
+      <p>Rain on the headwaters in the Middle Urals. Seven hundred kilometres downstream the Tura rose for three weeks and peaked at <b>897&nbsp;cm on 2 August 2026</b> — a record summer flood. I filled sandbags on the <span class="t">low bank</span> for two days, then mapped it from Sentinel-2.</p>
+    </div>
+    <div class="row">
+      <img class="sec" src="assets/section_tyumen.png" alt="Valley cross-section at Tyumen on the Tura, showing the high bank 36 m above the river and the low bank 11 m above it">
+      <div class="side">
+        <div class="discs">
+          <div class="disc"><img src="assets/sq_pre.png" alt="The Tura at Tyumen before the flood, Sentinel-2, 18 June 2026">
+            <div class="c"><b>18 June</b>137 ha</div></div>
+          <div class="disc"><img src="assets/sq_flood.png" alt="The Tura at Tyumen during the flood, Sentinel-2, 29 July 2026">
+            <div class="c"><b>29 July</b>415 ha — tripled</div></div>
+          <div class="stat">
+            <div class="n">1 in 6</div>
+            <p>buildings flooded on the <span class="t">low bank</span>, against <b>1 in 250</b> on the <span class="t">high bank</span>. Nine times as many people were in the water.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =============== THE CUT =============== -->
+  <div class="cut stripe">
+    <div class="msg">Tyumen's <em>low bank</em> sits 11&nbsp;m above the river.<br>So does Frankwell, in Shrewsbury.</div>
+  </div>
+
+  <div class="pad">
+    <!-- =============== BRITAIN =============== -->
+    <div class="rowhead" style="margin-top:2mm">
+      <div class="tag red">What could happen here</div>
+      <p>The Severn at Shrewsbury has the same shape as the Tura at Tyumen: a medieval town on the <span class="t">high bank</span>, and a district on the <span class="t">low bank</span> that floods. Same section, different country.</p>
+    </div>
+    <div class="row" style="margin-top:2.4mm">
+      <img class="sec" src="assets/section_shrewsbury.png" alt="Valley cross-section at Shrewsbury on the Severn, showing the high bank 27 m above the river and Frankwell 11 m above it">
+      <div class="side">
+        <div class="big" style="margin-top:0">
+          <div class="n">6.3m &rarr; 8m</div>
+          <p>English properties in areas at risk of flooding today, and by mid-century on the Environment Agency's own projection — <b>one property in four</b>.</p>
+        </div>
+        <div class="big" style="margin-top:3mm">
+          <p><b>What the two sections say.</b> Height above the river predicts flooding better than any line on a map, and it costs nothing to measure — the elevation data is free, global and open. The question is not whether a river floods, but how far above it we are building, and where the next <span class="t">river terrace</span> up begins.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot"><b>Method.</b> Copernicus DEM GLO-30 elevations; flood extent from Sentinel-2 L2A using MNDWI (Xu 2006) constrained by elevation and connectivity to the channel. Imagery and elevation data © European Union / ESA, free and open licence; every map and section here is my own work from them. <b>Sources:</b> Britannica; WWF/TNC Freshwater Ecoregions of the World; Eurasian Development Bank 2025; Environment Agency NaFRA 2024. Full list in the repository.</div>
+
+</div>
+</body>
+</html>
