@@ -2,7 +2,7 @@
 make_spine_profile.py
 ---------------------
 The poster's spine: the long profile of the Tura -> Tobol -> Irtysh -> Ob,
-from the source in the Middle Urals to the Kara Sea.
+from the source in the Ural mountains to the Kara Sea.
 
 Valley-floor elevations are the minimum of Copernicus DEM GLO-30 within about
 1.8 km of each waypoint, which reliably finds the water surface. Distances are
@@ -10,7 +10,11 @@ cumulative great-circle distances along the waypoint polyline, so they are
 shorter than the true channel length (the rivers meander); published channel
 lengths are quoted separately.
 
-Output: poster/assets/long_profile.png  (396 x 84 mm, drawn 1:1)
+Labels name rivers, not the small towns used as sampling points, so a reader
+meets no place name that is not defined on the poster.
+
+Output: poster/assets/long_profile.png  (400 x 60 mm, drawn 1:1, for a light
+yellow background)
 """
 
 import json
@@ -26,12 +30,13 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROC = os.path.join(ROOT, "data", "processed")
 ASSETS = os.path.join(ROOT, "poster", "assets")
 os.makedirs(ASSETS, exist_ok=True)
+os.makedirs(PROC, exist_ok=True)
 
 INK = "#14181C"
 RED = "#D92B1E"
-YEL = "#14181C"      # span arrow: dark, for the yellow ground
 GREY = "#6A6550"
 BLUE = "#1C6E8C"
+GROUND = "#FDF4CE"
 
 for fam in ("Poppins", "TeX Gyre Heros Cn", "DejaVu Sans"):
     if any(fam in f.name for f in matplotlib.font_manager.fontManager.ttflist):
@@ -41,9 +46,9 @@ plt.rcParams["text.color"] = INK
 
 # name, river, lat, lon, DEM valley-floor elevation (m), note
 WAYPOINTS = [
-    ("Source, Middle Urals", "Tura", 58.3936, 59.3656, 370.0,
+    ("Source, Ural mountains", "Tura", 58.3936, 59.3656, 370.0,
      "published 370 m; DEM 349 m within 2 km"),
-    ("Verkhoturye", "Tura", 58.8620, 60.8060, 92.1, ""),
+    ("Verkhoturye", "Tura", 58.8620, 60.8060, 92.1, "end of the mountain descent"),
     ("Turinsk", "Tura", 58.0450, 63.7000, 54.5, ""),
     ("TYUMEN", "Tura", 57.1616, 65.5349, 46.4, "gauge zero 48.52 m"),
     ("Tura joins the Tobol", "Tobol", 57.6600, 66.8800, 44.2, "published 42.2 m"),
@@ -96,41 +101,39 @@ ax.fill_between([dist[-1], X1], 0, 24, color=BLUE, alpha=.9, linewidth=0, zorder
 ax.fill_between(dist, 0, elev, color=INK, linewidth=0, zorder=3)
 ax.plot(dist, elev, color=INK, linewidth=1.4, zorder=4)
 
-brk = 1  # Verkhoturye: the end of the mountain descent
+brk = 1  # the end of the mountain descent
 ax.plot([dist[brk], dist[brk]], [0, Y_TOP], color=RED, linewidth=1.0,
         linestyle=(0, (3, 3)), zorder=5)
 
+# --- the mountain descent ---------------------------------------------------
 ax.annotate("", xy=(dist[0] + 4, 366), xytext=(dist[brk] - 4, 96),
             arrowprops=dict(arrowstyle="<->", color=RED, linewidth=2.0), zorder=8)
 fall1 = elev[0] - elev[brk]
 ax.text(dist[brk] + 55, 352, "%.0f m of fall in the first %.0f km" % (fall1, dist[brk]),
         fontsize=12.5, fontweight="bold", color=RED, ha="left", va="top", zorder=9)
-ax.text(dist[brk] + 55, 296,
-        "The Tura leaves the Middle Urals — and is never steep again.",
-        fontsize=10.6, color=GREY, ha="left", va="top", zorder=9)
 
-ax.annotate("", xy=(dist[brk] + 40, 128), xytext=(dist[-1] - 40, 128),
-            arrowprops=dict(arrowstyle="<->", color=YEL, linewidth=2.8), zorder=8)
+# --- the plain: headline and its explanation sit ABOVE the span arrow -------
 fall2 = elev[brk] - elev[-1]
 run2 = dist[-1] - dist[brk]
-ax.text((dist[brk] + dist[-1]) / 2, 172,
+ve = ((X1 - X0) / (R_MM - L_MM) * 1000.0) / (Y_TOP / (T_MM - B_MM))
+mid = (dist[brk] + dist[-1]) / 2 + 120
+ax.text(mid, 300,
         "%.0f m of fall in the next %s km" % (fall2, format(int(round(run2, -1)), ",")),
         fontsize=15.5, fontweight="bold", color=INK, ha="center", va="center",
-        zorder=9, path_effects=[withStroke(linewidth=3.4, foreground="#FDF4CE")])
-ve = ((X1 - X0) / (R_MM - L_MM) * 1000.0) / (Y_TOP / (T_MM - B_MM))
-ax.text((dist[brk] + dist[-1]) / 2, 92,
-        "about %.0f cm per kilometre. The profile below is exaggerated "
-        "×%s to be visible at all." % (100 * fall2 / run2,
-                                         format(int(round(ve, -1)), ",")),
+        zorder=9, path_effects=[withStroke(linewidth=3.4, foreground=GROUND)])
+ax.text(mid, 214,
+        "about %.0f cm per kilometre — exaggerated ×%s here to be visible at all"
+        % (100 * fall2 / run2, format(int(round(ve, -1)), ",")),
         fontsize=10.6, color=GREY, ha="center", va="center", zorder=9,
-        path_effects=[withStroke(linewidth=3.0, foreground="#FDF4CE")])
+        path_effects=[withStroke(linewidth=3.0, foreground=GROUND)])
+ax.annotate("", xy=(dist[brk] + 40, 150), xytext=(dist[-1] - 40, 150),
+            arrowprops=dict(arrowstyle="<->", color=INK, linewidth=2.8), zorder=8)
 
-BIG = {"TYUMEN", "Source, Middle Urals", "Gulf of Ob"}
+BIG = {"TYUMEN", "Source, Ural mountains", "Gulf of Ob"}
 for (name, river, la, lo, e, note), d in zip(WAYPOINTS, dist):
-    big = name in BIG
-    ax.plot([d], [e], marker="o", markersize=6.8 if big else 4.2,
+    ax.plot([d], [e], marker="o", markersize=6.8 if name in BIG else 4.2,
             color=RED if name == "TYUMEN" else INK, zorder=10,
-            markeredgecolor="#FDF4CE", markeredgewidth=1.0)
+            markeredgecolor=GROUND, markeredgewidth=1.0)
 
 ax.set_xlim(X0, X1)
 ax.set_ylim(0, Y_TOP)
@@ -143,23 +146,22 @@ def fx(d):
     return (L_MM + (d - X0) / (X1 - X0) * (R_MM - L_MM)) / W_MM
 
 
+# Rivers and events only; the small towns used as sampling points are unnamed.
 LABELS = [
     (0, "SOURCE\n370 m", "left", 11.4, True, 0),
-    (1, "Verkhoturye\n92 m", "center", 10.4, False, 1),
-    (2, "Turinsk\n55 m", "center", 10.4, False, 1),
+    (1, "Leaves the\nUrals, 92 m", "center", 10.4, False, 1),
     (3, "TYUMEN  46 m\nthe 2026 flood", "center", 11.4, True, 0),
-    (5, "Tobolsk\nTobol joins the Irtysh", "center", 10.4, False, 1),
-    (7, "Khanty-Mansiysk\nIrtysh joins the Ob", "center", 10.4, False, 0),
-    (9, "Salekhard\n0 m", "center", 10.4, False, 0),
+    (5, "Tobol river flows\ninto the Irtysh", "center", 10.4, False, 1),
+    (7, "Irtysh river flows\ninto the Ob", "center", 10.4, False, 0),
     (10, "KARA SEA\nArctic Ocean", "right", 11.4, True, 0),
 ]
 ROW_Y = {0: B_MM - 2.6, 1: B_MM - 12.6}
 for i, txt, ha, fs, bold, row in LABELS:
     dx = 0.004 if ha == "left" else -0.004 if ha == "right" else 0.0
-    if row == 1:
+    if row == 1 and i != brk:   # the red dashed line already marks the break
         fig.patches.append(plt.Rectangle(
             (fx(dist[i]) - 0.00035, (B_MM - 11.4) / H_MM), 0.0007, 8.6 / H_MM,
-            transform=fig.transFigure, facecolor="#BFC6CB", edgecolor="none"))
+            transform=fig.transFigure, facecolor="#BDB69A", edgecolor="none"))
     fig.text(fx(dist[i]) + dx, ROW_Y[row] / H_MM, txt, ha=ha, va="top",
              fontsize=fs, fontweight="bold" if bold else "normal",
              color=RED if txt.startswith("TYUMEN") else INK, linespacing=1.22)
@@ -171,8 +173,12 @@ for name, i, j, col in SEGS:
     fig.patches.append(plt.Rectangle((x0, (T_MM + 1.6) / H_MM), x1 - x0, 5.2 / H_MM,
                                      transform=fig.transFigure, facecolor=col,
                                      edgecolor="none", zorder=3))
-    fig.text((x0 + x1) / 2, (T_MM + 4.2) / H_MM, name, ha="center", va="center",
-             fontsize=11.8, fontweight="bold", color="white", zorder=4)
+    fig.text((x0 + x1) / 2, (T_MM + 4.2) / H_MM, name,
+             ha="center", va="center", fontsize=11.8, fontweight="bold",
+             color="white", zorder=4)
+# one lead-in word so nobody reads the bar as a list of towns
+fig.text(fx(dist[0]) - 0.004, (T_MM + 4.2) / H_MM, "RIVERS:",
+         ha="right", va="center", fontsize=11.0, fontweight="bold", color=INK)
 
 fig.text(L_MM / W_MM, (T_MM + 9.0) / H_MM,
          "Valley-floor elevation from Copernicus DEM GLO-30, measured for this poster "
@@ -187,6 +193,5 @@ out = os.path.join(ASSETS, "long_profile.png")
 fig.savefig(out, dpi=400, transparent=True)
 plt.close(fig)
 print("wrote", out)
-print("polyline %.0f km | source %.0f m" % (dist[-1], elev[0]))
-for (n, r, la, lo, e, note), d in zip(WAYPOINTS, dist):
-    print("  %-24s %6.0f km %6.1f m  %s" % (n, d, e, note))
+print("fall1 %.0f m in %.0f km | fall2 %.0f m in %.0f km (%.1f cm/km) | VE x%.0f"
+      % (fall1, dist[brk], fall2, run2, 100 * fall2 / run2, ve))

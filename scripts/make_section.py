@@ -44,15 +44,15 @@ TOWNS = {
         npz="cross_section_profile_v2.npz",
         flood_abs=57.49,
         flood_label="2 Aug 2026 — the river came up 9 m",
-        high="HIGH BANK", high_sub="the 1586 town. Stayed dry.",
-        low="LOW BANK", low_sub="built since the 1960s. 1 in 6 buildings flooded.",
+        high="HIGH BANK", high_sub="",
+        low="LOW BANK", low_sub="",
         out="section_tyumen.png", w=214.0, h=52.0),
     "shrewsbury": dict(
         npz="shrewsbury_cross_section_profile.npz",
         flood_abs=52.25,
         flood_label="1 Nov 2000 — the river came up 5 m",
-        high="HIGH BANK", high_sub="the medieval town. Has never been the problem.",
-        low="LOW BANK", low_sub="Frankwell. Flooded 3 times in 6 weeks in 2000.",
+        high="HIGH BANK", high_sub="",
+        low="LOW BANK", low_sub="",
         out="section_shrewsbury.png", w=214.0, h=52.0),
 }
 
@@ -102,11 +102,11 @@ def draw(key):
     # bank captions, under the section
     fig.text(L / W_MM, (B - 2.2) / H_MM, s["high"], ha="left", va="top",
              fontsize=11.6, fontweight="bold", color=INK)
-    fig.text(L / W_MM, (B - 7.0) / H_MM, s["high_sub"], ha="left", va="top",
+    if s["high_sub"]: fig.text(L / W_MM, (B - 7.0) / H_MM, s["high_sub"], ha="left", va="top",
              fontsize=10.6, color=GREY)
     fig.text(R / W_MM, (B - 2.2) / H_MM, s["low"], ha="right", va="top",
              fontsize=11.6, fontweight="bold", color=RED)
-    fig.text(R / W_MM, (B - 7.0) / H_MM, s["low_sub"], ha="right", va="top",
+    if s["low_sub"]: fig.text(R / W_MM, (B - 7.0) / H_MM, s["low_sub"], ha="right", va="top",
              fontsize=10.6, color=GREY)
 
     # scale bar, top left of the plot

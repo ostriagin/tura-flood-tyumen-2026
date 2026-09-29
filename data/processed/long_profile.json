@@ -1,7 +1,7 @@
 {
   "waypoints": [
     {
-      "name": "Source, Middle Urals",
+      "name": "Source, Ural mountains",
       "river": "Tura",
       "lat": 58.3936,
       "lon": 59.3656,
@@ -15,7 +15,7 @@
       "lat": 58.862,
       "lon": 60.806,
       "elev_m": 92.1,
-      "note": "",
+      "note": "end of the mountain descent",
       "dist_km": 98.3
     },
     {
