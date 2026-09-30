@@ -88,7 +88,11 @@ However, the 2026 event complicates the interpretation of that thesis. The north
 
 ## Data and code availability
 
-All processing scripts, the derived flood-extent and exposure layers, the QGIS project and the figure files are available in the accompanying repository. Sentinel-2 L2A imagery is available from the Copernicus Data Space Ecosystem (dataspace.copernicus.eu); the Copernicus DEM GLO-30 tile is available from the public `copernicus-dem-30m` archive; OpenStreetMap data were retrieved via the Overpass API; WorldPop population data were retrieved via the WorldPop REST API. Exact retrieval parameters are documented in the repository README.
+All processing scripts, the derived flood-extent and exposure layers, the QGIS project and the figure files are available in the accompanying repository, https://github.com/ostriagin/tura-flood-tyumen-2026. Sentinel-2 L2A imagery is available from the Copernicus Data Space Ecosystem (dataspace.copernicus.eu); the Copernicus DEM GLO-30 tile is available from the public `copernicus-dem-30m` archive; OpenStreetMap data were retrieved via the Overpass API; WorldPop population data were retrieved via the WorldPop REST API. Exact retrieval parameters are documented in the repository README.
+
+## Acknowledgements and use of AI tools
+
+The research question, the field observations during the flood and the interpretation are the author's own. An AI assistant (Claude, Anthropic) was used to help write and debug the Python processing code, to locate and check sources, and to edit the text. Every figure and number reported here was checked against the data and sources cited, and the full processing code is published so that the analysis can be re-run independently.
 
 ## References
 

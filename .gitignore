@@ -28,3 +28,7 @@ data/processed/dem_water_mask_debug*
 .DS_Store
 __pycache__/
 *.pyc
+
+# drafts and superseded versions, kept locally only
+_superseded/
+.git/_stale/
