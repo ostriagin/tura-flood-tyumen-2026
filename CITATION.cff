@@ -1,9 +1,10 @@
 cff-version: 1.2.0
 message: "If you use this analysis or its data, please cite it as below."
-title: "Does the 1586 siting of Tyumen still determine which bank of the Tura floods? A Sentinel-2 flood-extent analysis of the July-August 2026 Tura flood"
+title: "Built on the High Bank: Does a 440-year-old decision still decide who floods in a Siberian city? A Sentinel-2 and terrain analysis of the 2026 Tura river flood in Tyumen, Russia"
 authors:
   - family-names: Ostriagin
     given-names: Sasha
+    orcid: "https://orcid.org/0009-0004-2671-3970"
     affiliation: "Bromsgrove School, United Kingdom"
 date-released: 2026-09-30
 version: "1.0.0"
