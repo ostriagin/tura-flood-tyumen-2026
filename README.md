@@ -1,6 +1,6 @@
 # Built on the High Bank: does a 440-year-old decision still decide who floods in a Siberian city?
 
-Independent research project by Sasha Ostriagin (Bromsgrove School, UK):
+Independent research project by Aleksandr Ostriagin (Bromsgrove School, UK):
 a satellite flood-mapping analysis of the July–August 2026 Tura flood at
 Tyumen, western Siberia.
 
@@ -121,7 +121,7 @@ change from the geometry simplification used for the WorldPop query).
 
 ## Author
 
-Sasha Ostriagin, Bromsgrove School, United Kingdom — September 2026.
+Aleksandr Ostriagin, Bromsgrove School, United Kingdom — September 2026.
 Independent research project. The same analysis underlies the author's entry
 to the RGS Young Geographer of the Year 2026 (KS5, "From Source to Sea"),
 whose poster files are in `poster/`.
